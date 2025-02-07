@@ -15,7 +15,7 @@ class _PageViewCustomState extends State<OnboardingPageView> {
   @override
   void initState() {
     _pageController.addListener(() {
-      //print(_pageController.page);
+      
     });
 
     super.initState();
@@ -24,10 +24,7 @@ class _PageViewCustomState extends State<OnboardingPageView> {
   @override
   Widget build(BuildContext context) {
     return PageView(
-      controller: _pageController,
-      onPageChanged: (value) {
-        print(value);
-      },
+      controller: _pageController, 
       children: [
         OnboardingPageItem(
           image: TextImages.onboardingImage1,

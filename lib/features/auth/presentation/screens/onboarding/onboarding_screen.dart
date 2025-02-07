@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'widgets/widgets.dart';
 
-
-
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
@@ -13,12 +11,14 @@ class OnboardingScreen extends StatelessWidget {
       body: Stack(
         children: [
           OnboardingPageView(),
-          OnboardingButton(),
+          
+          Positioned(
+            bottom: 50,
+            child: OnboardingButton(),
+          ),
         ],
       ),
     );
   }
 }
-
-
 

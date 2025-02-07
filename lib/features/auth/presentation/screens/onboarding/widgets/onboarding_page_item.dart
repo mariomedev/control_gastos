@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'onboarding_dots.dart';
+
 class OnboardingPageItem extends StatelessWidget {
   final String image;
   final String title;
@@ -20,7 +22,7 @@ class OnboardingPageItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         spacing: 10,
         children: [
-          Flexible(child: SizedBox()),
+          //Flexible(child: SizedBox()),
           Image.asset(image),
           Text(
             title,
@@ -35,6 +37,7 @@ class OnboardingPageItem extends StatelessWidget {
             style: TextStyle(fontSize: 18),
             textAlign: TextAlign.center,
           ),
+          Dots(),
         ],
       ),
     );

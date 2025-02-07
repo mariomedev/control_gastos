@@ -1,3 +1,4 @@
+import 'package:control_gastos/core/utils/helpers/screen_helper.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingButton extends StatelessWidget {
@@ -5,14 +6,17 @@ class OnboardingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 100,
+
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: ScreenHelper.responsiveWidth(context, 0.1),
+      ),
       child: SizedBox(
-        width: double.infinity,
+        width: ScreenHelper.responsiveWidth(context, 0.8),
         height: 55,
         child: ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all(Colors.blue),
+            backgroundColor: WidgetStateProperty.all(Color(0xFF3366FF)),
             shape: WidgetStateProperty.all(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
@@ -26,7 +30,7 @@ class OnboardingButton extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           onPressed: () {
-            //TODO: Implementar next page
+           
           },
         ),
       ),
