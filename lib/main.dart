@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:control_gastos/core/core.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    ProviderScope(
+    child: MainApp(),
+  ));
 }
 
 class MainApp extends StatelessWidget {
