@@ -1,12 +1,12 @@
+import 'package:control_gastos/core/core.dart';
 import 'package:flutter/material.dart';
 
-import 'onboarding_dots.dart';
 
 class OnboardingPageItem extends StatelessWidget {
   final String image;
   final String title;
   final String description;
-  
+
   const OnboardingPageItem({
     required this.image,
     required this.title,
@@ -19,10 +19,11 @@ class OnboardingPageItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 45),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         spacing: 10,
         children: [
-          //Flexible(child: SizedBox()),
+          Container(
+            height: ScreenHelper.responsiveHeight(context, 0.2),
+          ),
           Image.asset(image),
           Text(
             title,
@@ -37,7 +38,6 @@ class OnboardingPageItem extends StatelessWidget {
             style: TextStyle(fontSize: 18),
             textAlign: TextAlign.center,
           ),
-          Dots(),
         ],
       ),
     );

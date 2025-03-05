@@ -1,11 +1,17 @@
-import 'package:control_gastos/core/utils/helpers/screen_helper.dart';
 import 'package:flutter/material.dart';
 
-class OnboardingButton extends StatelessWidget {
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../../../../core/core.dart';
+import '../../../provider/providers.dart';
+
+class OnboardingButton extends ConsumerWidget {
   const OnboardingButton({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final onboardingIndex = ref.watch(onboardingIndexProvider);
+    final onboardingController = ref.watch(onboardingControllerProvider);
 
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -24,15 +30,24 @@ class OnboardingButton extends StatelessWidget {
             ),
           ),
           child: Text(
-            'Siguiente',
+            (onboardingIndex == 2) ? 'Siguiente' : 'Empezar',
             style: TextStyle(
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.w600),
             textAlign: TextAlign.center,
           ),
           onPressed: () {
-           
+            if (onboardingIndex != 2) {
+              onboardingController!.nextPage(
+                duration: Duration(seconds: 1),
+                curve: Curves.easeOutCubic,
+              );
+            }
+            if (onboardingIndex == 2) {
+              
+            }
           },
         ),
       ),
     );
-  }}
+  }
+}

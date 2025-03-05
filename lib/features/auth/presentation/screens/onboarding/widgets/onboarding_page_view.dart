@@ -1,30 +1,36 @@
 import 'package:control_gastos/core/constants/constants.dart';
 import 'package:control_gastos/features/auth/presentation/screens/onboarding/widgets/onboarding_page_item.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class OnboardingPageView extends StatefulWidget {
+import '../../../provider/providers.dart';
+
+class OnboardingPageView extends ConsumerStatefulWidget {
   const OnboardingPageView({super.key});
 
   @override
-  State<OnboardingPageView> createState() => _PageViewCustomState();
+  PageViewCustomState createState() => PageViewCustomState();
 }
 
-class _PageViewCustomState extends State<OnboardingPageView> {
-  final PageController _pageController = PageController();
-
+class PageViewCustomState extends ConsumerState<OnboardingPageView> {
+  
   @override
   void initState() {
-    _pageController.addListener(() {
-      
-    });
-
+    final pageController = ref.read(onboardingControllerProvider);
     super.initState();
+    pageController!.addListener(
+      () {
+        ref
+            .read(onboardingIndexProvider.notifier)
+            .update((state) => pageController.page!.round());
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return PageView(
-      controller: _pageController, 
+      controller: ref.read(onboardingControllerProvider),
       children: [
         OnboardingPageItem(
           image: TextImages.onboardingImage1,

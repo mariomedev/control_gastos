@@ -1,3 +1,4 @@
+import 'package:control_gastos/core/core.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/widgets.dart';
@@ -11,10 +12,13 @@ class OnboardingScreen extends StatelessWidget {
       body: Stack(
         children: [
           OnboardingPageView(),
-          
           Positioned(
-            bottom: 50,
+            bottom: ScreenHelper.responsiveHeight(context, 0.05),
             child: OnboardingButton(),
+          ),
+          Positioned(
+            bottom: ScreenHelper.responsiveHeight(context, 0.25),
+            child: Dots(),
           ),
         ],
       ),
