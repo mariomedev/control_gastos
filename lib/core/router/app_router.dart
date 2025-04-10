@@ -8,10 +8,14 @@ final GoRouter routes = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) => OnboardingScreen(),
-    )
-,    GoRoute(
+    ),
+    GoRoute(
       path: '/register',
       builder: (context, state) => RegisterScreen(),
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => LoginScreen(),
     )
   ],
 );

@@ -25,7 +25,19 @@ class TextImages {
   static const String registerHintText3 = 'Ingrese su contraseña de nuevo';
   
 
-  static const String footerText1 = 'ó Continua con';
-  static const String footerText2 = '¿Tienes una cuenta?';
-  static const String footerText3 = 'Inicia sesión';
+  static const String registerFooterText1 = 'ó Continua con';
+  static const String registerFooterText2 = '¿Tienes una cuenta?';
+  static const String registerFooterText3 = 'Inicia sesión';
+
+  //Login Screen 
+
+  static const String loginFormTitle1 = 'Correo electrónico';
+  static const String loginFormTitle2 = 'Contraseña';
+
+  static const String loginHintText1 = 'micorreo@gmail.com';
+  static const String loginHintText2 = '**********';
+  
+  static const String loginFooterText1 = 'ó Continua con';
+  static const String loginFooterText2 = '¿No tienes una cuenta?';
+  static const String loginFooterText3 = 'Regístrate';
 }
