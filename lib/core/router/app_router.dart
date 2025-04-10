@@ -1,5 +1,6 @@
-import 'package:control_gastos/features/auth/presentation/screens/screens.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../features/auth/presentation/screens/screens.dart';
 
 final GoRouter routes = GoRouter(
   initialLocation: '/',
@@ -7,6 +8,10 @@ final GoRouter routes = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) => OnboardingScreen(),
+    )
+,    GoRoute(
+      path: '/register',
+      builder: (context, state) => RegisterScreen(),
     )
   ],
 );

@@ -1,14 +1,10 @@
-
 import 'package:flutter/material.dart';
 
-
-// TODO implement global theme. 
+// TODO implement global theme.
 
 class AppTheme {
-
-  static ThemeData getTheme() =>ThemeData(
-    useMaterial3: true, 
-    colorSchemeSeed: Colors.red
-  );
-  
+  static ThemeData getTheme() => ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Color(0xFF3366FF),
+      );
 }
