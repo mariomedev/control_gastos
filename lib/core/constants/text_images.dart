@@ -13,6 +13,17 @@ class TextImages {
   static const String onboardingImage2 = 'assets/img/onboarding/onboard_2.png';
   static const String onboardingImage3 = 'assets/img/onboarding/onboard_3.png';
 
+  //home Screen
+
+  static const String homeNavigatorIcon1 = 'assets/svg/icons/home/home.svg';
+  static const String homeNavigatorIcon2 = 'assets/svg/icons/home/accout.svg';
+  static const String homeNavigatorIcon3 = 'assets/svg/icons/home/fixed_costs.svg';
+  static const String homeNavigatorIcon4 = 'assets/svg/icons/home/Profile.svg';
+
+  static const String homeNavigatorTitle1 = 'General';
+  static const String homeNavigatorTitle2 = 'Cuentas';
+  static const String homeNavigatorTitle3 = 'Fijos';
+  static const String homeNavigatorTitle4 = 'Perfil';
 
   //Register Screen 
 
