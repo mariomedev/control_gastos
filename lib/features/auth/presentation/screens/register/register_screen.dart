@@ -1,9 +1,7 @@
-import 'package:control_gastos/features/auth/presentation/screens/register/widgets/register_social_media.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/core.dart';
-import 'widgets/form_register.dart';
-import 'widgets/register_botton.dart';
+import 'widgets/widgets.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});

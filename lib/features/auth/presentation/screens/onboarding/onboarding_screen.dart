@@ -17,7 +17,7 @@ class OnboardingScreen extends StatelessWidget {
             child: OnboardingButton(),
           ),
           Positioned(
-            bottom: ScreenHelper.responsiveHeight(context, 0.25),
+            bottom: ScreenHelper.responsiveHeight(context, 0.20),
             child: Dots(),
           ),
         ],

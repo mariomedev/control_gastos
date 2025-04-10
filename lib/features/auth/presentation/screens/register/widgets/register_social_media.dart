@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/core.dart';
 
@@ -19,7 +20,7 @@ class RegisterSocialMedia extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              TextImages.footerText1,
+              TextImages.registerFooterText1,
               style: TextStyle(),
             ),
             Container(
@@ -31,14 +32,17 @@ class RegisterSocialMedia extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               spacing: 5,
               children: [
-                Text(TextImages.footerText2),
+                Text(TextImages.registerFooterText2),
                 TextButton(
-                  onPressed: () {},
-                  child: Text(TextImages.footerText3,
-                  style: TextStyle(
-                    fontSize: 18, 
-                    color: Color(0xff426AF9)
-                  ),
+                  onPressed: () {
+                    context.go('/login');
+                  },
+                  child: Text(
+                    TextImages.registerFooterText3,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Color(0xff426AF9),
+                    ),
                   ),
                 ),
               ],
