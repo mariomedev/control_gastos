@@ -1,10 +1,11 @@
+import 'package:control_gastos/features/general_spending/presentation/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/core.dart';
 import 'widgets/home_navigator_item.dart';
 
 List<Widget> pages = [
-  Icon(Icons.abc),
+  GeneralScreen(),
   Icon(Icons.aspect_ratio),
   Icon(Icons.wallet),
   Icon(Icons.question_answer),
@@ -24,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       top: false,
       child: Scaffold(
-        body: Center(child: pages.elementAt(currentPage)),
+        body: pages.elementAt(currentPage),
         bottomNavigationBar: SizedBox(
           height: 70,
           child: Padding(
