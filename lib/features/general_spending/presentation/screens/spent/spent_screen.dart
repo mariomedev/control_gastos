@@ -9,19 +9,15 @@ class SpentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                children: [
-                  SpentGraph(),
-                  SpentButtonAdd(),
-                  SpentList(),
-                ],
-              ),            
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Column(
+            children: [
+              SpentGraph(),
+              SpentButtonAdd(),
+              SpentList(),
+            ],
+          ),            
         ),
       ),
     );
