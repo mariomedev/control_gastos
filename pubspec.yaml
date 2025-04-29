@@ -29,4 +29,5 @@ flutter:
     - assets/svg/icons/
     - assets/svg/icons/home/
     - assets/svg/icons/buttons/
+    - assets/svg/icons/auth/
 

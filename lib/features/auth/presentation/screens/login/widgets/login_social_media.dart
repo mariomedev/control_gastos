@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/core.dart';
@@ -23,10 +25,29 @@ class LoginSocialMedia extends StatelessWidget {
               TextImages.loginFooterText1,
               style: TextStyle(),
             ),
-            Container(
-              color: Colors.grey,
+            SizedBox(
               height: 70,
               width: double.infinity,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SvgPicture.asset(
+                    'assets/svg/icons/auth/apple.svg',
+                    height: 36,
+                    width: 36,
+                  ),
+                  SvgPicture.asset(
+                    'assets/svg/icons/auth/facebook.svg',
+                    height: 36,
+                    width: 36,
+                  ),
+                  SvgPicture.asset(
+                    'assets/svg/icons/auth/google.svg',
+                    height: 36,
+                    width: 36,
+                  ),
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -37,11 +58,9 @@ class LoginSocialMedia extends StatelessWidget {
                   onPressed: () {
                     context.go('/register');
                   },
-                  child: Text(TextImages.loginFooterText3,
-                  style: TextStyle(
-                    fontSize: 18, 
-                    color: Color(0xff426AF9)
-                  ),
+                  child: Text(
+                    TextImages.loginFooterText3,
+                    style: TextStyle(fontSize: 18, color: Color(0xff426AF9)),
                   ),
                 ),
               ],

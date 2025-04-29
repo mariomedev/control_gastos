@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/core.dart';
@@ -23,10 +25,29 @@ class RegisterSocialMedia extends StatelessWidget {
               TextImages.registerFooterText1,
               style: TextStyle(),
             ),
-            Container(
-              color: Colors.grey,
+            SizedBox(
               height: 70,
               width: double.infinity,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SvgPicture.asset(
+                    'assets/svg/icons/auth/apple.svg',
+                    height: 36.0,
+                    width: 36.0,
+                  ),
+                  SvgPicture.asset(
+                    'assets/svg/icons/auth/facebook.svg',
+                    height: 36,
+                    width: 36,
+                  ),
+                  SvgPicture.asset(
+                    'assets/svg/icons/auth/google.svg',
+                    height: 36,
+                    width: 36,
+                  ),
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
