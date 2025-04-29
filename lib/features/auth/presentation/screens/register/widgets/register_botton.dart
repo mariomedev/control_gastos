@@ -10,7 +10,7 @@ class RegisterBotton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomBottonShare(
+    return CustomButtonShare(
       title: 'Registrarse',
       onPressed: () {
         //TODO: Go to home. 

@@ -51,4 +51,13 @@ class TextImages {
   static const String loginFooterText1 = 'ó Continua con';
   static const String loginFooterText2 = '¿No tienes una cuenta?';
   static const String loginFooterText3 = 'Regístrate';
+
+  //Spending Screen
+
+  static const String spendingButtonText1 = 'Agregar gasto';
+  
+
+  // Share widget
+  static const String customButtonTextIcon = 'assets/svg/icons/buttons/Add Square.svg'; 
+
 }

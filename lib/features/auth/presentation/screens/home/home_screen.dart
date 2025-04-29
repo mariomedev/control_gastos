@@ -28,7 +28,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       duration: Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );
-    
   }
 
   @override
@@ -45,7 +44,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           },
           children: pages,
         ),
-        bottomNavigationBar: SizedBox(
+        bottomNavigationBar: Container(
+          color: Colors.white,
           height: 70,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 27),

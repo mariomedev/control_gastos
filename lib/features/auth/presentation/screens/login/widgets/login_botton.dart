@@ -10,7 +10,7 @@ class LoginBotton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomBottonShare(
+    return CustomButtonShare(
       title: 'Iniciar Sesión',
       onPressed: () {
         //TODO: Go to View General.

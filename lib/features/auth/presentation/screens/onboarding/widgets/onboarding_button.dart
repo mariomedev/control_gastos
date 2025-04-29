@@ -1,4 +1,4 @@
-import 'package:control_gastos/features/widgets/custom_botton_share.dart';
+import 'package:control_gastos/features/widgets/custom_button_share.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,7 +14,7 @@ class OnboardingButton extends ConsumerWidget {
     final onboardingIndex = ref.watch(onboardingIndexProvider);
     final onboardingController = ref.watch(onboardingControllerProvider);
 
-    return CustomBottonShare(
+    return CustomButtonShare(
       title: (onboardingIndex == 2) ? 'Siguiente' : 'Empezar',
       onPressed: () {
         if (onboardingIndex != 2) {
