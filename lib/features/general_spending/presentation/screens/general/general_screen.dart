@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../screens.dart';
 import 'widgets/general_tap.dart';
 
 class GeneralScreen extends StatelessWidget {
@@ -20,12 +21,7 @@ class GeneralScreen extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            Center(
-              child: Text(
-                'Gastos',
-                style: TextStyle(fontSize: 100),
-              ),
-            ),
+            SpentScreen(),
             Center(
               child: Text(
                 'Ingresos',
