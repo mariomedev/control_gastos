@@ -22,12 +22,7 @@ class GeneralScreen extends StatelessWidget {
         body: TabBarView(
           children: [
             SpentScreen(),
-            Center(
-              child: Text(
-                'Ingresos',
-                style: TextStyle(fontSize: 100),
-              ),
-            ),
+            IcomeScreen(),
             Center(
               child: Text(
                 'Historial',
