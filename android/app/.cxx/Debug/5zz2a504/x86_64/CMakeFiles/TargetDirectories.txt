@@ -1,0 +1,2 @@
+D:/Programacion/Flutter/Proyectos Personales/control_gastos/android/app/.cxx/Debug/5zz2a504/x86_64/CMakeFiles/edit_cache.dir
+D:/Programacion/Flutter/Proyectos Personales/control_gastos/android/app/.cxx/Debug/5zz2a504/x86_64/CMakeFiles/rebuild_cache.dir
