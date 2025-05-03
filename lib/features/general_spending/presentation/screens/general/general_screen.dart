@@ -23,12 +23,7 @@ class GeneralScreen extends StatelessWidget {
           children: [
             SpentScreen(),
             IcomeScreen(),
-            Center(
-              child: Text(
-                'Historial',
-                style: TextStyle(fontSize: 100),
-              ),
-            )
+            RecordScreen()
           ],
         ),
       ),
