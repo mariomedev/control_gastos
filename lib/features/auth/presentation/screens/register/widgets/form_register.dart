@@ -1,15 +1,18 @@
+import 'package:control_gastos/features/auth/presentation/provider/auth/register_form_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../../core/core.dart';
 import '../../../../../widgets/widgets.dart';
 
-class FormRegister extends StatelessWidget {
+class FormRegister extends ConsumerWidget {
   const FormRegister({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final formProvider = ref.watch(registerFormProvider);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
@@ -17,23 +20,33 @@ class FormRegister extends StatelessWidget {
         spacing: 5,
         children: [
           _TitleForm(
-            title: TextImages.registerFormTitle1,
+            title: AppStrings.registerFormTitle1,
           ),
           CustomForm(
-            hintText: TextImages.registerHintText1,
+            hintText: AppStrings.registerHintText1,
+            onChanged: (value) {
+              ref.read(registerFormProvider.notifier).onNameChanged(value);
+            },
+            errorText: formProvider.userNameInput.errorMessage,
           ),
           _TitleForm(
-            title: TextImages.registerFormTitle2,
+            title: AppStrings.registerFormTitle2,
           ),
           CustomForm(
-            hintText: TextImages.registerHintText2,
+            hintText: AppStrings.registerHintText2,
+          ),
+          _TitleForm(
+            title: AppStrings.registerFormTitle3,
+          ),
+          CustomForm(
+            hintText: AppStrings.registerHintText3,
             passwordIsActive: true,
           ),
           _TitleForm(
-            title: TextImages.registerFormTitle3,
+            title: AppStrings.registerFormTitle4,
           ),
           CustomForm(
-            hintText: TextImages.registerHintText3,
+            hintText: AppStrings.registerHintText4,
             passwordIsActive: true,
           ),
         ],
@@ -66,4 +79,3 @@ class _TitleForm extends StatelessWidget {
     );
   }
 }
-
