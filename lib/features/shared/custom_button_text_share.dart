@@ -14,26 +14,27 @@ class CustomBottonTextShare extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return IconButton(
       onPressed: onPressed,
       icon: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
-        spacing: 8,
+        spacing: AppDimensions.kSpacing10,
         children: [
           SvgPicture.asset(
-            TextImages.customButtonTextIcon,
+            AppAssets.customButtonTextIcon,
             height: 26,
             width: 26,
             colorFilter: ColorFilter.mode(
-              Color(0xff3366FF),
+              colors.primary,
               BlendMode.srcIn,
             ),
           ),
           Text(
             title,
             style: TextStyle(
-              color: Color(0xFF3366FF),
+              color: colors.primary,
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
             ),

@@ -13,18 +13,18 @@ class OnboardingPageView extends ConsumerStatefulWidget {
 }
 
 class PageViewCustomState extends ConsumerState<OnboardingPageView> {
-  
   @override
   void initState() {
-    final pageController = ref.read(onboardingControllerProvider);
-    super.initState();
-    pageController!.addListener(
+    final pageControllerState = ref.read(onboardingControllerProvider);
+    final pageIndexController = ref.read(onboardingIndexProvider.notifier);
+    pageControllerState!.addListener(
       () {
-        ref
-            .read(onboardingIndexProvider.notifier)
-            .update((state) => pageController.page!.round());
+        pageIndexController.update(
+          (state) => pageControllerState.page!.round(),
+        );
       },
     );
+    super.initState();
   }
 
   @override
@@ -33,19 +33,19 @@ class PageViewCustomState extends ConsumerState<OnboardingPageView> {
       controller: ref.read(onboardingControllerProvider),
       children: [
         OnboardingPageItem(
-          image: TextImages.onboardingImage1,
-          title: TextImages.onboardTitle1,
-          description: TextImages.onboardSubTitle1,
+          image: AppAssets.onboardingImage1,
+          title: AppStrings.onboardTitle1,
+          description: AppStrings.onboardSubTitle1,
         ),
         OnboardingPageItem(
-          image: TextImages.onboardingImage2,
-          title: TextImages.onboardTitle2,
-          description: TextImages.onboardSubTitle1,
+          image: AppAssets.onboardingImage2,
+          title: AppStrings.onboardTitle2,
+          description: AppStrings.onboardSubTitle1,
         ),
         OnboardingPageItem(
-          image: TextImages.onboardingImage3,
-          title: TextImages.onboardTitle3,
-          description: TextImages.onboardSubTitle1,
+          image: AppAssets.onboardingImage3,
+          title: AppStrings.onboardTitle3,
+          description: AppStrings.onboardSubTitle1,
         ),
       ],
     );

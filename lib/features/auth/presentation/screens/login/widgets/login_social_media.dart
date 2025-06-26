@@ -10,10 +10,12 @@ class LoginSocialMedia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    final isDark = colors.brightness == Brightness.dark;
     return DefaultTextStyle(
       style: TextStyle(
         fontSize: 16,
-        color: Colors.black,
+        color: isDark ? Colors.white : Colors.black,
       ),
       child: SizedBox(
         height: ScreenHelper.responsiveHeight(context, 0.15),
@@ -22,8 +24,7 @@ class LoginSocialMedia extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              TextImages.loginFooterText1,
-              style: TextStyle(),
+              AppStrings.loginFooterText1,
             ),
             SizedBox(
               height: 70,
@@ -32,17 +33,22 @@ class LoginSocialMedia extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SvgPicture.asset(
-                    'assets/svg/icons/auth/apple.svg',
+                    AppAssets.appleIcon,
+                    height: 36,
+                    width: 36,
+                    colorFilter: ColorFilter.mode(
+                        colors.brightness == Brightness.light
+                            ? Colors.black
+                            : Colors.white,
+                        BlendMode.srcIn),
+                  ),
+                  SvgPicture.asset(
+                    AppAssets.facebookIcon,
                     height: 36,
                     width: 36,
                   ),
                   SvgPicture.asset(
-                    'assets/svg/icons/auth/facebook.svg',
-                    height: 36,
-                    width: 36,
-                  ),
-                  SvgPicture.asset(
-                    'assets/svg/icons/auth/google.svg',
+                    AppAssets.googleIcon,
                     height: 36,
                     width: 36,
                   ),
@@ -53,14 +59,17 @@ class LoginSocialMedia extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               spacing: 5,
               children: [
-                Text(TextImages.loginFooterText2),
+                Text(AppStrings.loginFooterText2),
                 TextButton(
                   onPressed: () {
                     context.go('/register');
                   },
                   child: Text(
-                    TextImages.loginFooterText3,
-                    style: TextStyle(fontSize: 18, color: Color(0xff426AF9)),
+                    AppStrings.loginFooterText3,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: colors.primary,
+                    ),
                   ),
                 ),
               ],

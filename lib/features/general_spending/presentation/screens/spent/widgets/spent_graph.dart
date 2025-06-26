@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/core.dart';
-import '../../../../../widgets/widgets.dart';
+import '../../../../../shared/widgets.dart';
 
 class SpentGraph extends StatelessWidget {
   const SpentGraph({
@@ -32,4 +32,3 @@ class SpentGraph extends StatelessWidget {
     );
   }
 }
-

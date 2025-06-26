@@ -1,5 +1,6 @@
-import 'package:control_gastos/features/widgets/custom_button_text_share.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../shared/widgets.dart';
 
 class IncomeButtonAdd extends StatelessWidget {
   const IncomeButtonAdd({super.key});

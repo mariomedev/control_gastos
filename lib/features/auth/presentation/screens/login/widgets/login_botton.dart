@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../widgets/widgets.dart';
+import '../../../../../shared/widgets.dart';
 
 class LoginBotton extends StatelessWidget {
   const LoginBotton({
@@ -13,7 +13,6 @@ class LoginBotton extends StatelessWidget {
     return CustomButtonShare(
       title: 'Iniciar Sesión',
       onPressed: () {
-        //TODO: Go to View General.
         context.go('/home');
       },
     );

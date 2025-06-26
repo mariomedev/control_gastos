@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/core.dart';
-import '../../../../../widgets/widgets.dart';
+import '../../../../../shared/widgets.dart';
 
 class FormLogin extends StatelessWidget {
   const FormLogin({
@@ -17,19 +17,18 @@ class FormLogin extends StatelessWidget {
         spacing: 5,
         children: [
           _TitleForm(
-            title: TextImages.loginFormTitle1,
+            title: AppStrings.loginFormTitle1,
           ),
           CustomForm(
-            hintText: TextImages.loginHintText1,
+            hintText: AppStrings.loginHintText1,
           ),
           _TitleForm(
-            title: TextImages.loginFormTitle2,
+            title: AppStrings.loginFormTitle2,
           ),
           CustomForm(
-            hintText: TextImages.loginHintText2,
+            hintText: AppStrings.loginHintText2,
             passwordIsActive: true,
           ),
-          
         ],
       ),
     );
@@ -60,4 +59,3 @@ class _TitleForm extends StatelessWidget {
     );
   }
 }
-

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/core.dart';
-import '../../../../../widgets/widgets.dart';
+import '../../../../../shared/widgets.dart';
 
 class IncomeGraph extends StatelessWidget {
   const IncomeGraph({
@@ -32,4 +32,3 @@ class IncomeGraph extends StatelessWidget {
     );
   }
 }
-

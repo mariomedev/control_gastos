@@ -15,7 +15,7 @@ class GeneralScreen extends StatelessWidget {
           title: Text('General'),
           centerTitle: true,
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(40),
+            preferredSize: Size.fromHeight(50),
             child: GeneralTapBar(),
           ),
         ),
@@ -23,7 +23,7 @@ class GeneralScreen extends StatelessWidget {
           children: [
             SpentScreen(),
             IcomeScreen(),
-            RecordScreen()
+            RecordScreen(),
           ],
         ),
       ),

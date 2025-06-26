@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../widgets/widgets.dart';
+import '../../../../../shared/widgets.dart';
 
 class RegisterBotton extends StatelessWidget {
   const RegisterBotton({
@@ -13,7 +13,6 @@ class RegisterBotton extends StatelessWidget {
     return CustomButtonShare(
       title: 'Registrarse',
       onPressed: () {
-        //TODO: Go to home. 
         context.go('/home');
       },
     );

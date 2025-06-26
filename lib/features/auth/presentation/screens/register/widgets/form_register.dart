@@ -1,9 +1,9 @@
-import 'package:control_gastos/features/auth/presentation/provider/auth/register_form_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../../core/core.dart';
-import '../../../../../widgets/widgets.dart';
+import '../../../../../shared/widgets.dart';
+import '../../../provider/providers.dart';
 
 class FormRegister extends ConsumerWidget {
   const FormRegister({
@@ -12,7 +12,8 @@ class FormRegister extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final formProvider = ref.watch(registerFormProvider);
+    final formState = ref.watch(registerFormProvider);
+    final formController = ref.read(registerFormProvider.notifier);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
@@ -24,10 +25,8 @@ class FormRegister extends ConsumerWidget {
           ),
           CustomForm(
             hintText: AppStrings.registerHintText1,
-            onChanged: (value) {
-              ref.read(registerFormProvider.notifier).onNameChanged(value);
-            },
-            errorText: formProvider.userNameInput.errorMessage,
+            onChanged: (value) => formController.onNameChanged(value),
+            errorText: formState.userNameInput.errorMessage,
           ),
           _TitleForm(
             title: AppStrings.registerFormTitle2,
@@ -63,7 +62,7 @@ class _TitleForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textForm = Theme.of(context).textTheme.bodyLarge!.copyWith(
+    final textFormStyle = Theme.of(context).textTheme.bodyLarge!.copyWith(
           fontWeight: FontWeight.w700,
         );
     return Row(
@@ -73,7 +72,7 @@ class _TitleForm extends StatelessWidget {
         ),
         Text(
           title,
-          style: textForm,
+          style: textFormStyle,
         ),
       ],
     );

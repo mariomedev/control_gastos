@@ -16,6 +16,7 @@ class HomeNavigatorItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return IconButton(
       onPressed: onPressed,
       icon: Column(
@@ -26,14 +27,14 @@ class HomeNavigatorItem extends StatelessWidget {
             height: 26,
             width: 26,
             colorFilter: ColorFilter.mode(
-              isSeleted ? Color(0xff3366FF) : Color(0xff92929D),
+              isSeleted ? colors.primary : Color(0xff92929D),
               BlendMode.srcIn,
             ),
           ),
           Text(
             title,
             style: TextStyle(
-              color: isSeleted ? Color(0xff3366FF) : Color(0xff92929D),
+              color: isSeleted ? colors.primary : Color(0xff92929D),
             ),
           ),
         ],

@@ -1,9 +1,9 @@
-import 'package:control_gastos/features/auth/presentation/provider/onboarding_provider.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../../core/core.dart';
-
+import '../../../provider/providers.dart';
 
 class Dots extends StatelessWidget {
   const Dots({
@@ -35,7 +35,7 @@ class _Dot extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
+    final colors = Theme.of(context).colorScheme;
     final indexProvider = ref.watch(onboardingIndexProvider);
 
     return Container(
@@ -43,7 +43,7 @@ class _Dot extends ConsumerWidget {
       height: 12,
       width: 12,
       decoration: BoxDecoration(
-        color: (indexProvider == index) ?  Color(0xFF426AF9) : Color(0xFFC4C4C4),
+        color: (indexProvider == index) ? colors.primary : Colors.grey,
         shape: BoxShape.circle,
       ),
     );

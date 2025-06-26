@@ -1,9 +1,9 @@
-import 'package:control_gastos/features/widgets/custom_button_share.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../shared/widgets.dart';
 import '../../../provider/providers.dart';
 
 class OnboardingButton extends ConsumerWidget {
