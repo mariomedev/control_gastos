@@ -1,3 +1,4 @@
+import 'package:control_gastos/features/profile/presentation/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/core.dart';
@@ -8,7 +9,7 @@ List<Widget> pages = [
   GeneralScreen(),
   Icon(Icons.aspect_ratio),
   Icon(Icons.wallet),
-  Icon(Icons.question_answer),
+  ProfileScreen(),
 ];
 
 class HomeScreen extends StatefulWidget {
