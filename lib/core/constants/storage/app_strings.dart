@@ -51,4 +51,21 @@ class AppStrings {
   //Spending Screen
 
   static const String spendingButtonText1 = 'Agregar gasto';
+
+  //Profile Screen
+
+  static const String appBarProfile = 'Perfil';
+
+  //Categories Screen
+
+  static const String appBarCategories = 'Categorías';
+  static const String emptyCategories = 'Agrega una nueva categoría';
+  static const String addButtonCategory = 'Agregar categoría';
+
+  //Create Categories Screen
+
+  static const String appBarCreateCategory = 'Nueva categoría';
+  static const String subTitleCreateCategory1 = 'Categoría';
+  static const String subTitleCreateCategory2 = 'Seleccione símbolo';
+  static const String buttonCreateCategory = 'Agregar categoría';
 }
