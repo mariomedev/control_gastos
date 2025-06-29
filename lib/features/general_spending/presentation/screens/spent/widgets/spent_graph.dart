@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/core.dart';
-import '../../../../../shared/widgets.dart';
+import '../../../../../shared/shared.dart';
 
 class SpentGraph extends StatelessWidget {
   const SpentGraph({

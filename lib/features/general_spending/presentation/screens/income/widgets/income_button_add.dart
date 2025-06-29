@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../shared/widgets.dart';
+import '../../../../../shared/shared.dart';
 
 class IncomeButtonAdd extends StatelessWidget {
   const IncomeButtonAdd({super.key});

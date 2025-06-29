@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../core/core.dart';
+import '../../../core/core.dart';
 
 class CustomBottonTextShare extends StatelessWidget {
   final String title;

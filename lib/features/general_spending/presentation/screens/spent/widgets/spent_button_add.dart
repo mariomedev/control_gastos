@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../shared/widgets.dart';
+import '../../../../../shared/shared.dart';
 
 class SpentButtonAdd extends StatelessWidget {
   const SpentButtonAdd({

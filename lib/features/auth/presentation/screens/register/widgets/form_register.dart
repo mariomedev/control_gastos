@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../../core/core.dart';
-import '../../../../../shared/widgets.dart';
+import '../../../../../shared/shared.dart';
 import '../../../provider/providers.dart';
 
 class FormRegister extends ConsumerWidget {
