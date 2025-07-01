@@ -1,27 +1,29 @@
+import 'package:flutter/widgets.dart';
+
 import '../../domain/domain.dart';
 
 class ThemeRepoImpl implements ThemeRepo {
+  final ThemeDataDomain dataSource;
+
+  ThemeRepoImpl({required this.dataSource});
+
   @override
-  Future<String> getColorScheme(String key) {
-    // TODO: implement getColorScheme
-    throw UnimplementedError();
+  Future<Color> getColorScheme(String key) async {
+    return dataSource.getColorScheme(key);
   }
 
   @override
   Future<bool> getIsDarkMode(String key) {
-    // TODO: implement getIsDarkMode
-    throw UnimplementedError();
+    return dataSource.getIsDarkMode(key);
   }
 
   @override
-  Future<void> setColorSheme(String colorScheme, String key) {
-    // TODO: implement setColorSheme
-    throw UnimplementedError();
+  Future<void> setColorSheme(int colorScheme, String key) {
+    return dataSource.setColorSheme(colorScheme, key);
   }
 
   @override
   Future<void> setIsDarkMode(bool isDarkMode, String key) {
-    // TODO: implement setIsDarkMode
-    throw UnimplementedError();
+    return dataSource.setIsDarkMode(isDarkMode, key);
   }
 }
