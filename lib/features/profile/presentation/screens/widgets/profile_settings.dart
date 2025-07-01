@@ -16,7 +16,7 @@ class ProfileSettings extends StatelessWidget {
         ),
         _ProfileCard(
           title: 'Categorías',
-          onTap: () => context.push('/categories'),
+          onTap: () => context.push('/categories/create_category'),
         ),
         _ProfileCard(
           title: 'Color de tema',

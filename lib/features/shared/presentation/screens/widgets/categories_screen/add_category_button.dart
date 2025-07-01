@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/core.dart';
-import '../../../shared.dart';
+import '../../../../../../core/core.dart';
+import '../../../../shared.dart';
 
 class AddCategoryButton extends StatelessWidget {
   const AddCategoryButton({

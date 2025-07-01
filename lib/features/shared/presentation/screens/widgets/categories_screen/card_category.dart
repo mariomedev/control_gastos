@@ -1,7 +1,7 @@
 import 'package:control_gastos/features/shared/domain/domain.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/core.dart';
+import '../../../../../../core/core.dart';
 
 class CardCategory extends StatelessWidget {
   final CategoryEntity category;
