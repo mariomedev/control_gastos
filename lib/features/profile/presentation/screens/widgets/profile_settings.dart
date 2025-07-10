@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/core.dart';
+import '../../provider/providers.dart';
 
-class ProfileSettings extends StatelessWidget {
+class ProfileSettings extends ConsumerWidget {
   const ProfileSettings({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeController = ref.read(themeProviderState.notifier);
+    final themeState = ref.watch(themeProviderState);
     return Column(
       spacing: AppDimensions.kSpacing10,
       children: [
@@ -16,18 +22,47 @@ class ProfileSettings extends StatelessWidget {
         ),
         _ProfileCard(
           title: 'Categorías',
-          onTap: () => context.push('/categories/create_category'),
+          onTap: () => context.push('/categories'),
         ),
         _ProfileCard(
-          title: 'Color de tema',
-        ),
+            title: 'Color de tema',
+            onTap: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context) => _NewColorTheme(),
+              );
+            }),
         _ProfileCard(
-          title: 'Modo Oscuro',
+          title: themeState.isDarkMode ? 'Modo Light' : 'Modo Dark',
+          onTap: () => themeController.onChangeDarkMode(
+            !themeState.isDarkMode,
+            AppPrefsKeys.isDarkMode,
+          ),
         ),
         _ProfileCard(
           title: 'Ayuda y Soporte',
         ),
       ],
+    );
+  }
+}
+
+class _NewColorTheme extends ConsumerWidget {
+  const _NewColorTheme();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeController = ref.read(themeProviderState.notifier);
+    final themeColorState = ref.watch(themeProviderState).colorSheme;
+    return SizedBox(
+      width: double.infinity,
+      child: BlockPicker(
+        pickerColor: themeColorState,
+        onColorChanged: (color) => themeController.onChangeTheme(
+          color,
+          AppPrefsKeys.colorSheme,
+        ),
+      ),
     );
   }
 }

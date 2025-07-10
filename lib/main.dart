@@ -5,21 +5,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:control_gastos/core/core.dart';
 
 void main() {
-  runApp(
-    ProviderScope(
+  runApp(ProviderScope(
     child: MainApp(),
   ));
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends ConsumerWidget {
   const MainApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return  MaterialApp.router(
+  Widget build(BuildContext context, WidgetRef ref) {
+    return MaterialApp.router(
       routerConfig: routes,
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.getTheme(),
+      theme: ref.watch(themeGlobalProvider),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/core.dart';
-import '../../../../shared.dart';
+import '../../../../../shared/shared.dart';
 
 class CreateCategoryForm extends StatelessWidget {
   const CreateCategoryForm({super.key});

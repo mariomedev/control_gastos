@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../domain/domain.dart';
+import '../../../../domain/entities/category_entity.dart';
 import '../widgets.dart';
 
 class CategoryListBuilder extends StatelessWidget {

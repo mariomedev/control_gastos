@@ -23,8 +23,9 @@ class DataThemeImpl implements ThemeDataDomain {
   }
 
   @override
-  Future<void> setColorSheme(int colorScheme, String key) async {
-    await service.saveInt(key, colorScheme);
+  Future<void> setColorSheme(Color colorScheme, String key) async {
+    final value = colorScheme.toARGB32();
+    await service.saveInt(key, value);
   }
 
   @override

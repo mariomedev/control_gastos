@@ -18,7 +18,7 @@ class ThemeRepoImpl implements ThemeRepo {
   }
 
   @override
-  Future<void> setColorSheme(int colorScheme, String key) {
+  Future<void> setColorSheme(Color colorScheme, String key) {
     return dataSource.setColorSheme(colorScheme, key);
   }
 

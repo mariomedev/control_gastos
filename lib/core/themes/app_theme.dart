@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 
-class AppTheme {
-  static ThemeData getTheme() {
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:control_gastos/features/profile/presentation/provider/providers.dart';
+
+final themeGlobalProvider = Provider<ThemeData>((ref) {
+  final isDarkMode = ref.watch(themeProviderState).isDarkMode;
+  final colorSheme = ref.watch(themeProviderState).colorSheme;
+
+  if (isDarkMode) {
     return ThemeData(
-      colorScheme: ColorScheme.light(
-        primary: Colors.red,
+      colorScheme: ColorScheme.dark(
+        primary: colorSheme,
       ),
     );
   }
-}
+  if (!isDarkMode) {
+    return ThemeData(
+      colorScheme: ColorScheme.light(
+        primary: colorSheme,
+      ),
+    );
+  }
+  return ThemeData();
+});
