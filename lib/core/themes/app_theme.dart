@@ -6,7 +6,7 @@ import 'package:control_gastos/features/profile/presentation/provider/providers.
 
 final themeGlobalProvider = Provider<ThemeData>((ref) {
   final isDarkMode = ref.watch(themeProviderState).isDarkMode;
-  final colorSheme = ref.watch(themeProviderState).colorSheme;
+  final colorSheme = ref.watch(themeProviderState).colorScheme;
 
   if (isDarkMode) {
     return ThemeData(

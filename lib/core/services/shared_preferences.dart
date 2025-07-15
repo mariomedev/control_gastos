@@ -11,48 +11,50 @@ abstract class SharedPreferencesService {
 }
 
 class SharedPreferencesServiceImpl implements SharedPreferencesService {
-  late final SharedPreferences _prefs;
-
-  SharedPreferencesServiceImpl() {
-    _initialization();
-  }
-
-  _initialization() async {
-    _prefs = await SharedPreferences.getInstance();
+  SharedPreferencesServiceImpl();
+  Future<SharedPreferences> get _prefs async {
+    return await SharedPreferences.getInstance();
   }
 
   @override
   Future<void> saveString(String key, String value) async {
-    await _prefs.setString(key, value);
+    final SharedPreferences prefs = await _prefs;
+    await prefs.setString(key, value);
   }
 
   @override
   Future<String?> getString(String key) async {
-    return _prefs.getString(key);
+    final SharedPreferences prefs = await _prefs;
+    return prefs.getString(key);
   }
 
   @override
   Future<void> saveInt(String key, int value) async {
-    await _prefs.setInt(key, value);
+    final SharedPreferences prefs = await _prefs;
+    await prefs.setInt(key, value);
   }
 
   @override
   Future<int?> getInt(String key) async {
-    return _prefs.getInt(key);
+    final SharedPreferences prefs = await _prefs;
+    return prefs.getInt(key);
   }
 
   @override
   Future<void> saveBool(String key, bool value) async {
-    await _prefs.setBool(key, value);
+    final SharedPreferences prefs = await _prefs;
+    await prefs.setBool(key, value);
   }
 
   @override
   Future<bool?> getBool(String key) async {
-    return _prefs.getBool(key);
+    final SharedPreferences prefs = await _prefs;
+    return prefs.getBool(key);
   }
 
   @override
   Future<void> remove(String key) async {
-    await _prefs.remove(key);
+    final SharedPreferences prefs = await _prefs;
+    await prefs.remove(key);
   }
 }

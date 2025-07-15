@@ -8,22 +8,22 @@ class ThemeRepoImpl implements ThemeRepo {
   ThemeRepoImpl({required this.dataSource});
 
   @override
-  Future<Color> getColorScheme(String key) async {
-    return dataSource.getColorScheme(key);
+  Future<Color> getColorScheme() async {
+    return dataSource.getColorScheme();
   }
 
   @override
-  Future<bool> getIsDarkMode(String key) {
-    return dataSource.getIsDarkMode(key);
+  Future<bool> getIsDarkMode() {
+    return dataSource.getIsDarkMode();
   }
 
   @override
-  Future<void> setColorSheme(Color colorScheme, String key) {
-    return dataSource.setColorSheme(colorScheme, key);
+  Future<void> setColorSheme(Color colorScheme) {
+    return dataSource.setColorSheme(colorScheme);
   }
 
   @override
-  Future<void> setIsDarkMode(bool isDarkMode, String key) {
-    return dataSource.setIsDarkMode(isDarkMode, key);
+  Future<void> setIsDarkMode(bool isDarkMode) {
+    return dataSource.setIsDarkMode(isDarkMode);
   }
 }

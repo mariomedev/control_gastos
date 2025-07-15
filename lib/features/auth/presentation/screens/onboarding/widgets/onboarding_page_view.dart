@@ -40,12 +40,12 @@ class PageViewCustomState extends ConsumerState<OnboardingPageView> {
         OnboardingPageItem(
           image: AppAssets.onboardingImage2,
           title: AppStrings.onboardTitle2,
-          description: AppStrings.onboardSubTitle1,
+          description: AppStrings.onboardSubTitle2,
         ),
         OnboardingPageItem(
           image: AppAssets.onboardingImage3,
           title: AppStrings.onboardTitle3,
-          description: AppStrings.onboardSubTitle1,
+          description: AppStrings.onboardSubTitle3,
         ),
       ],
     );

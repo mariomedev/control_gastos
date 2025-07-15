@@ -29,6 +29,7 @@ flutter:
 
   assets:
     - assets/img/onboarding/
+    - assets/img/splash/
     - assets/svg/icons/
     - assets/svg/icons/home/
     - assets/svg/icons/buttons/

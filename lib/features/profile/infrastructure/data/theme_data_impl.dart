@@ -11,25 +11,26 @@ class DataThemeImpl implements ThemeDataDomain {
   static const int _defaultColorInt = 0xFF42A5F5;
 
   @override
-  Future<Color> getColorScheme(String key) async {
-    final colorInt = await service.getInt(key) ?? _defaultColorInt;
+  Future<void> setColorSheme(Color colorScheme) async {
+    final value = colorScheme.toARGB32();
+    await service.saveInt(AppPrefsKeys.colorSheme, value);
+  }
+
+  @override
+  Future<Color> getColorScheme() async {
+    final colorInt =
+        await service.getInt(AppPrefsKeys.colorSheme) ?? _defaultColorInt;
     final color = Color(colorInt);
     return color;
   }
 
   @override
-  Future<bool> getIsDarkMode(String key) async {
-    return await service.getBool(key) ?? false;
+  Future<void> setIsDarkMode(bool isDarkMode) async {
+    await service.saveBool(AppPrefsKeys.isDarkMode, isDarkMode);
   }
 
   @override
-  Future<void> setColorSheme(Color colorScheme, String key) async {
-    final value = colorScheme.toARGB32();
-    await service.saveInt(key, value);
-  }
-
-  @override
-  Future<void> setIsDarkMode(bool isDarkMode, String key) async {
-    await service.saveBool(key, isDarkMode);
+  Future<bool> getIsDarkMode() async {
+    return await service.getBool(AppPrefsKeys.isDarkMode) ?? false;
   }
 }

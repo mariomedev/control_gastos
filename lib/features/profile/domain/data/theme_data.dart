@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 abstract class ThemeDataDomain {
-  Future<void> setColorSheme(Color colorScheme, String key);
-  Future<Color> getColorScheme(String key);
-  Future<bool> getIsDarkMode(String key);
-  Future<void> setIsDarkMode(bool isDarkMode, String key);
+  Future<void> setColorSheme(Color colorScheme);
+  Future<Color> getColorScheme();
+  Future<void> setIsDarkMode(bool isDarkMode);
+  Future<bool> getIsDarkMode();
 }

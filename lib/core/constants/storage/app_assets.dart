@@ -1,6 +1,9 @@
 class AppAssets {
   AppAssets._();
 
+  //?Splash Screen
+  static const String splashImage = 'assets/img/splash/logo.png';
+
   //?Onboarding Screen
   static const String onboardingImage1 = 'assets/img/onboarding/onboard_1.png';
   static const String onboardingImage2 = 'assets/img/onboarding/onboard_2.png';
