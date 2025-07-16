@@ -1,15 +1,19 @@
-import 'package:control_gastos/core/constants/constants.dart';
+import 'package:control_gastos/features/auth/presentation/provider/providers.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class SplashScreen extends StatefulWidget {
+import '../../../../../core/core.dart';
+
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
+class _SplashScreenState extends ConsumerState<SplashScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animationScale;
@@ -25,11 +29,21 @@ class _SplashScreenState extends State<SplashScreen>
       curve: Curves.decelerate,
     ));
 
-    _animationController.forward().whenComplete(() {
-      context.push('/onboarding');
+    _animationController.forward().whenComplete(() async {
+      final onboardingCompleted = await ref
+          .read(onboardingCompletedProvider.notifier)
+          .checkOnboardingStatus();
+      if (!mounted) return;
+      context.go(onboardingCompleted ? '/home' : '/onboarding');
     });
 
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   @override

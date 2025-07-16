@@ -13,6 +13,7 @@ class OnboardingButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final onboardingIndex = ref.watch(onboardingIndexProvider);
     final onboardingController = ref.watch(onboardingControllerProvider);
+    final onboardingCompleted = ref.watch(onboardingCompletedProvider.notifier);
 
     return CustomButtonShare(
       title: (onboardingIndex == 2) ? 'Siguiente' : 'Empezar',
@@ -24,6 +25,7 @@ class OnboardingButton extends ConsumerWidget {
           );
         }
         if (onboardingIndex == 2) {
+          onboardingCompleted.completeOnboarding();
           context.go('/register');
         }
       },
