@@ -7,6 +7,7 @@ environment:
   sdk: ^3.6.0
 
 dependencies:
+  dart_either: ^2.0.0
   fl_chart: ^0.71.0
   flutter:
     sdk: flutter
@@ -18,6 +19,7 @@ dependencies:
   go_router: ^14.7.1
   shared_preferences: ^2.5.3
   sqflite: ^2.4.1
+  supabase: ^2.8.0
 
 dev_dependencies:
   flutter_lints: ^5.0.0
