@@ -1,9 +1,9 @@
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:dart_either/dart_either.dart';
-import 'package:supabase/supabase.dart';
 
-import '../domain.dart';
+import '../../../../core/core.dart';
 
 abstract class AuthRepository {
-  Future<Either<User, ErrorItem>> signIn(String email, String password);
-  Future<Either<User, ErrorItem>> signUp(String email, String password);
+  Future<Either<ErrorItem, User>> signIn(String email, String password);
+  Future<Either<ErrorItem, User>> signUp(String email, String password);
 }
