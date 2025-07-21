@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../shared/shared.dart';
+import '../../../provider/providers.dart';
 
-class RegisterBotton extends StatelessWidget {
+class RegisterBotton extends ConsumerWidget {
   const RegisterBotton({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authFormController = ref.watch(registerFormProvider.notifier);
     return CustomButtonShare(
       title: 'Registrarse',
       onPressed: () {
-        context.go('/home');
+        authFormController.onFormSumit(context);
       },
     );
   }

@@ -4,14 +4,18 @@ class AppStrings {
   // Onboarding Screen
 
   static const String onboardTitle1 =
-      'La mejor manera de administrar tu dinero';
+      'Organiza tus finanzas sin complicaciones';
   static const String onboardTitle2 =
-      'La mejor manera de administrar tu dinero';
+      'Evita llegar a fin de mes sin saber por qué';
   static const String onboardTitle3 =
-      'La mejor manera de administrar tu dinero';
+      'Toma decisiones con inteligencia financiera';
 
   static const String onboardSubTitle1 =
-      'Lleva el control de tus gastos e ingresos en un solo lugar';
+      'Visualiza tus ingresos, gastos y descuentos al instante.';
+  static const String onboardSubTitle2 =
+      ' Registra tus movimientos diarios y toma el control total.';
+  static const String onboardSubTitle3 =
+      'Analiza tus hábitos y mejora tu economía personal cada día.';
 
   //home Screen
 

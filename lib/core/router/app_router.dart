@@ -9,6 +9,10 @@ final GoRouter routes = GoRouter(
   routes: [
     GoRoute(
       path: '/',
+      builder: (context, state) => SplashScreen(),
+    ),
+    GoRoute(
+      path: '/onboarding',
       builder: (context, state) => OnboardingScreen(),
     ),
     GoRoute(

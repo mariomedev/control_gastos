@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/core.dart';
@@ -34,10 +34,7 @@ class ProfileSettings extends ConsumerWidget {
             }),
         _ProfileCard(
           title: themeState.isDarkMode ? 'Modo Light' : 'Modo Dark',
-          onTap: () => themeController.onChangeDarkMode(
-            !themeState.isDarkMode,
-            AppPrefsKeys.isDarkMode,
-          ),
+          onTap: () => themeController.onChangeDarkMode(!themeState.isDarkMode),
         ),
         _ProfileCard(
           title: 'Ayuda y Soporte',
@@ -53,15 +50,12 @@ class _NewColorTheme extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final themeController = ref.read(themeProviderState.notifier);
-    final themeColorState = ref.watch(themeProviderState).colorSheme;
+    final themeColorState = ref.watch(themeProviderState).colorScheme;
     return SizedBox(
       width: double.infinity,
       child: BlockPicker(
         pickerColor: themeColorState,
-        onColorChanged: (color) => themeController.onChangeTheme(
-          color,
-          AppPrefsKeys.colorSheme,
-        ),
+        onColorChanged: (color) => themeController.onChangeTheme(color),
       ),
     );
   }
