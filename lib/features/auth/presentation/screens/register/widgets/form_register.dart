@@ -12,8 +12,8 @@ class FormRegister extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final formState = ref.watch(registerFormProvider);
-    final formController = ref.read(registerFormProvider.notifier);
+    final authFormController = ref.read(registerFormProvider.notifier);
+    final authFormState = ref.watch(registerFormProvider);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
@@ -25,14 +25,20 @@ class FormRegister extends ConsumerWidget {
           ),
           CustomForm(
             hintText: AppStrings.registerHintText1,
-            onChanged: (value) => formController.onNameChanged(value),
-            errorText: formState.userNameInput.errorMessage,
+            onChanged: (value) => authFormController.onNameChanged(value),
+            errorText: authFormState.isPosted
+                ? authFormState.userNameInput.errorMessage
+                : null,
           ),
           _TitleForm(
             title: AppStrings.registerFormTitle2,
           ),
           CustomForm(
             hintText: AppStrings.registerHintText2,
+            onChanged: (value) => authFormController.onEmailChanged(value),
+            errorText: authFormState.isPosted
+                ? authFormState.emailInput.errorMessage
+                : null,
           ),
           _TitleForm(
             title: AppStrings.registerFormTitle3,
@@ -40,6 +46,10 @@ class FormRegister extends ConsumerWidget {
           CustomForm(
             hintText: AppStrings.registerHintText3,
             passwordIsActive: true,
+            onChanged: (value) => authFormController.onPasswordChanged(value),
+            errorText: authFormState.isPosted
+                ? authFormState.passwordInput.errorMessage
+                : null,
           ),
           _TitleForm(
             title: AppStrings.registerFormTitle4,
@@ -47,6 +57,11 @@ class FormRegister extends ConsumerWidget {
           CustomForm(
             hintText: AppStrings.registerHintText4,
             passwordIsActive: true,
+            onChanged: (value) =>
+                authFormController.onConfirmPasswordChanged(value),
+            errorText: authFormState.isPosted
+                ? authFormState.confirmPasswordInput.errorMessage
+                : null,
           ),
         ],
       ),

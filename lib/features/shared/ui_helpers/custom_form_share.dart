@@ -8,10 +8,12 @@ class CustomForm extends StatefulWidget {
   final bool? passwordIsActive;
   final Function(String value)? onChanged;
   final String? errorText;
+  final TextInputType? keyboardType;
   const CustomForm({
     super.key,
     this.hintText,
     this.passwordIsActive = false,
+    this.keyboardType,
     this.onChanged,
     this.errorText,
   });
@@ -47,6 +49,7 @@ class _CustomFormState extends State<CustomForm> {
     return TextField(
       obscureText: obscureText,
       onChanged: widget.onChanged,
+      keyboardType: widget.keyboardType,
       decoration: InputDecoration(
         focusedBorder: border.copyWith(borderSide: BorderSide(width: 2)),
         enabledBorder: border,

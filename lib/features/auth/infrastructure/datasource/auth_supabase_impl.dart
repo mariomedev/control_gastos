@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:dart_either/dart_either.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -9,7 +12,27 @@ class AuthSupabaseImpl extends AuthDataSource {
 
   @override
   Future<Either<ErrorItem, User>> signUp(String email, String password) async {
-    throw UnimplementedError();
+    try {
+      final res = await supabase.auth.signUp(
+        email: email,
+        password: password,
+      );
+
+      final user = res.user;
+      if (user != null) {
+        return Either.right(user);
+      } else {
+        return Either.left(SupabaseErrors.unknown);
+      }
+    } on AuthException catch (e) {
+      return Either.left(SupabaseErrors.fromException(e));
+    } on SocketException catch (e) {
+      return Either.left(SystemErrors.fromException(e));
+    } on TimeoutException catch (e) {
+      return Either.left(SystemErrors.fromException(e));
+    } catch (e) {
+      return Either.left(SystemErrors.fromException(e));
+    }
   }
 
   @override
@@ -19,14 +42,21 @@ class AuthSupabaseImpl extends AuthDataSource {
         email: email,
         password: password,
       );
-      final User? user = res.user;
+
+      final user = res.user;
       if (user != null) {
         return Either.right(user);
       } else {
         return Either.left(SupabaseErrors.unknown);
       }
-    } catch (e) {
+    } on AuthException catch (e) {
       return Either.left(SupabaseErrors.fromException(e));
+    } on SocketException catch (e) {
+      return Either.left(SystemErrors.fromException(e));
+    } on TimeoutException catch (e) {
+      return Either.left(SystemErrors.fromException(e));
+    } catch (e) {
+      return Either.left(SystemErrors.fromException(e));
     }
   }
 }
