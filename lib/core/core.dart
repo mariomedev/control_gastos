@@ -17,3 +17,4 @@ export 'services/servides.dart';
 // Error Core
 export 'error/error_item.dart';
 export 'error/supabase_errors.dart';
+export 'error/system_errors.dart';

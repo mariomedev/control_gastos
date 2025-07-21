@@ -2,42 +2,42 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'error_item.dart';
 
 class SupabaseErrors {
-  static const userNotFound = ErrorItem(
+  static final userNotFound = ErrorItem(
     code: 'USER_NOT_FOUND',
     message: 'No se encontró un usuario con esas credenciales.',
   );
 
-  static const invalidCredentials = ErrorItem(
+  static final invalidCredentials = ErrorItem(
     code: 'INVALID_CREDENTIALS',
     message: 'Correo o contraseña incorrectos.',
   );
 
-  static const emailNotConfirmed = ErrorItem(
+  static final emailNotConfirmed = ErrorItem(
     code: 'EMAIL_NOT_CONFIRMED',
     message: 'Debes confirmar tu correo electrónico antes de iniciar sesión.',
   );
 
-  static const userAlreadyExists = ErrorItem(
+  static final userAlreadyExists = ErrorItem(
     code: 'USER_ALREADY_EXISTS',
     message: 'Ya existe una cuenta con este correo.',
   );
 
-  static const invalidEmail = ErrorItem(
+  static final invalidEmail = ErrorItem(
     code: 'INVALID_EMAIL',
     message: 'El formato del correo electrónico no es válido.',
   );
 
-  static const passwordTooWeak = ErrorItem(
+  static final passwordTooWeak = ErrorItem(
     code: 'WEAK_PASSWORD',
     message: 'La contraseña es demasiado débil.',
   );
 
-  static const rateLimitExceeded = ErrorItem(
+  static final rateLimitExceeded = ErrorItem(
     code: 'RATE_LIMIT',
     message: 'Demasiados intentos. Intenta más tarde.',
   );
 
-  static const unknown = ErrorItem(
+  static final unknown = ErrorItem(
     code: 'UNKNOWN',
     message: 'Ha ocurrido un error inesperado.',
   );
@@ -72,7 +72,6 @@ class SupabaseErrors {
       return ErrorItem(
         code: 'AUTH_EXCEPTION',
         message: error.message,
-        rawError: error,
       );
     }
 

@@ -1,14 +1,13 @@
-class ErrorItem {
-  final String code;
-  final String message;
-  final dynamic rawError;
+import 'package:control_gastos/core/error/failure.dart';
 
-  const ErrorItem({
+class ErrorItem extends Failure {
+  final String code;
+
+  ErrorItem({
     required this.code,
-    required this.message,
-    this.rawError,
-  });
+    required String message,
+  }) : super(message);
 
   @override
-  String toString() => '[$code] $message';
+  String toString() => 'ErrorItem(code: $code, message: $message)';
 }
