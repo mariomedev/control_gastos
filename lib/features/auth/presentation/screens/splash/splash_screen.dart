@@ -34,7 +34,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
           .read(onboardingCompletedProvider.notifier)
           .checkOnboardingStatus();
       if (!mounted) return;
-      context.go(onboardingCompleted ? '/home' : '/onboarding');
+      context.go(onboardingCompleted ? '/register' : '/onboarding');
     });
 
     super.initState();

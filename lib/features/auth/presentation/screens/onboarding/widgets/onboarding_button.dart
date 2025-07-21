@@ -26,7 +26,7 @@ class OnboardingButton extends ConsumerWidget {
         }
         if (onboardingIndex == 2) {
           onboardingCompleted.completeOnboarding();
-          context.go('/register');
+          context.go('/login');
         }
       },
     );
