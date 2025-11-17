@@ -15,13 +15,13 @@ class PasswordInput extends FormzInput<String, PasswordInputError> {
     if (isValid || isPure) return null;
 
     if (displayError == PasswordInputError.empty) {
-      return 'User password is required';
+      return 'La contraseña es requerida';
     }
     if (displayError == PasswordInputError.lenght) {
-      return 'User password must be at least 8 characters long and no more than 20 characters';
+      return 'La contraseña debe tener entre 8 y 20 caracteres';
     }
     if (displayError == PasswordInputError.format) {
-      return 'Password must contain at least one uppercase letter, one lowercase letter, and one number or special character';
+      return 'La contraseña debe contener al menos una mayúscula, una minúscula y un número o carácter especial';
     }
 
     return null;

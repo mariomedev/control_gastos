@@ -3,7 +3,6 @@ import 'package:formz/formz.dart';
 enum EmailInputError { empty, format }
 
 class EmailInput extends FormzInput<String, EmailInputError> {
-  
   static final RegExp emailRegExp = RegExp(
     r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
   );
@@ -15,8 +14,10 @@ class EmailInput extends FormzInput<String, EmailInputError> {
   String? get errorMessage {
     if (isValid || isPure) return null;
 
-    if (displayError == EmailInputError.empty) return 'Email is required';
-    if (displayError == EmailInputError.format) return 'Invalid email format';
+    if (displayError == EmailInputError.empty)
+      return 'El correo electrónico es requerido';
+    if (displayError == EmailInputError.format)
+      return 'Formato de correo inválido';
 
     return null;
   }

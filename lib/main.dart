@@ -1,31 +1,51 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:control_gastos/core/core.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:get_it/get_it.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import 'core/core.dart';
+import 'features/profile/profile_feature.dart';
+
 void main() async {
-  //TODO: Cambiar por Key seguras.
+  await dotenv.load(fileName: '.env');
+
   await Supabase.initialize(
-    url: 'https://vcknnaowqmcmskmsifbw.supabase.co',
-    anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZja25uYW93cW1jbXNrbXNpZmJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYyNTI0MzAsImV4cCI6MjA2MTgyODQzMH0.d2cf5IUtzJ_q7m8WsXuvnu-uMC1UiXU1WOPsWM4RC9U',
+    url: dotenv.env['SUPABASE_URL'] ?? '',
+    anonKey: dotenv.env['SUPABASE_ANON_KEY'] ?? '',
   );
-  runApp(ProviderScope(
-    child: MainApp(),
-  ));
+
+  await setupServiceLocator();
+
+  runApp(const MainApp());
 }
 
-class MainApp extends ConsumerWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return MaterialApp.router(
-      routerConfig: routes,
-      debugShowCheckedModeBanner: false,
-      theme: ref.watch(themeGlobalProvider),
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  @override
+  void initState() {
+    super.initState();
+    GetIt.instance<ThemeBloc>().add(const ThemeLoadRequested());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ThemeBloc, ThemeState>(
+      bloc: GetIt.instance<ThemeBloc>(),
+      builder: (context, themeState) {
+        return MaterialApp.router(
+          routerConfig: routes,
+          debugShowCheckedModeBanner: false,
+          theme: buildTheme(themeState),
+        );
+      },
     );
   }
 }

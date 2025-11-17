@@ -3,6 +3,7 @@ export 'themes/theme.dart';
 
 // Router Core
 export 'router/app_router.dart';
+export 'router/route_paths.dart';
 
 // Contants Core
 export 'constants/constants.dart';
@@ -18,3 +19,6 @@ export 'services/servides.dart';
 export 'error/error_item.dart';
 export 'error/supabase_errors.dart';
 export 'error/system_errors.dart';
+
+// DI Core
+export 'di/service_locator.dart';

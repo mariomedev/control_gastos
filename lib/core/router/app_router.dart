@@ -1,39 +1,41 @@
 import 'package:go_router/go_router.dart';
 
+import 'route_paths.dart';
+
 import '../../features/auth/presentation/screens/screens.dart';
 import '../../features/home/presentation/screens/screens.dart';
 import '../../features/shared/shared.dart';
 
 final GoRouter routes = GoRouter(
-  initialLocation: '/',
+  initialLocation: RoutePaths.splash,
   routes: [
     GoRoute(
-      path: '/',
-      builder: (context, state) => SplashScreen(),
+      path: RoutePaths.splash,
+      builder: (context, state) => const SplashScreen(),
     ),
     GoRoute(
-      path: '/onboarding',
-      builder: (context, state) => OnboardingScreen(),
+      path: RoutePaths.onboarding,
+      builder: (context, state) => const OnboardingScreen(),
     ),
     GoRoute(
-      path: '/home',
-      builder: (context, state) => HomeScreen(),
+      path: RoutePaths.home,
+      builder: (context, state) => const HomeScreen(),
     ),
     GoRoute(
-      path: '/register',
-      builder: (context, state) => RegisterScreen(),
+      path: RoutePaths.register,
+      builder: (context, state) => const RegisterScreen(),
     ),
     GoRoute(
-      path: '/login',
-      builder: (context, state) => LoginScreen(),
+      path: RoutePaths.login,
+      builder: (context, state) => const LoginScreen(),
     ),
     GoRoute(
-      path: '/categories',
-      builder: (context, state) => CategoriesScreen(),
+      path: RoutePaths.categories,
+      builder: (context, state) => const CategoriesScreen(),
       routes: [
         GoRoute(
-          path: '/create_category',
-          builder: (context, state) => CreateCategoryScreen(),
+          path: RoutePaths.createCategory,
+          builder: (context, state) => const CreateCategoryScreen(),
         )
       ],
     ),

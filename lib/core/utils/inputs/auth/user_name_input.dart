@@ -10,8 +10,10 @@ class UserNameInput extends FormzInput<String, UserNameInputError> {
   String? get errorMessage {
     if (isValid || isPure) return null;
 
-    if (displayError == UserNameInputError.empty) return 'User name is required';
-    if (displayError == UserNameInputError.lenght) return 'User name must be at least 3 characters long and no more than 20 characters';
+    if (displayError == UserNameInputError.empty)
+      return 'El nombre de usuario es requerido';
+    if (displayError == UserNameInputError.lenght)
+      return 'El nombre de usuario debe tener entre 3 y 20 caracteres';
 
     return null;
   }
