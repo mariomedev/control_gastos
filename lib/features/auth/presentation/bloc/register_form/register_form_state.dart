@@ -5,6 +5,7 @@ class RegisterFormState extends Equatable {
   final EmailInput emailInput;
   final PasswordInput passwordInput;
   final ConfirmPasswordInput confirmPasswordInput;
+  final String errorMessage;
   final bool isValid;
   final bool isPosting;
   final bool isPosted;
@@ -14,6 +15,7 @@ class RegisterFormState extends Equatable {
     this.emailInput = const EmailInput.pure(),
     this.passwordInput = const PasswordInput.pure(),
     this.confirmPasswordInput = const ConfirmPasswordInput.pure(),
+    this.errorMessage = '',
     this.isValid = false,
     this.isPosting = false,
     this.isPosted = false,
@@ -24,6 +26,7 @@ class RegisterFormState extends Equatable {
     EmailInput? emailInput,
     PasswordInput? passwordInput,
     ConfirmPasswordInput? confirmPasswordInput,
+    String? errorMessage,
     bool? isValid,
     bool? isPosting,
     bool? isPosted,
@@ -33,6 +36,7 @@ class RegisterFormState extends Equatable {
       emailInput: emailInput ?? this.emailInput,
       passwordInput: passwordInput ?? this.passwordInput,
       confirmPasswordInput: confirmPasswordInput ?? this.confirmPasswordInput,
+      errorMessage: errorMessage ?? this.errorMessage,
       isValid: isValid ?? this.isValid,
       isPosting: isPosting ?? this.isPosting,
       isPosted: isPosted ?? this.isPosted,
@@ -45,6 +49,7 @@ class RegisterFormState extends Equatable {
         emailInput,
         passwordInput,
         confirmPasswordInput,
+        errorMessage,
         isValid,
         isPosting,
         isPosted,

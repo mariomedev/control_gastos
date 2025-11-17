@@ -1,13 +1,16 @@
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 import 'route_paths.dart';
-
 import '../../features/auth/presentation/screens/screens.dart';
 import '../../features/home/presentation/screens/screens.dart';
 import '../../features/shared/shared.dart';
 
+final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
+
 final GoRouter routes = GoRouter(
   initialLocation: RoutePaths.splash,
+  navigatorKey: rootNavigatorKey,
   routes: [
     GoRoute(
       path: RoutePaths.splash,

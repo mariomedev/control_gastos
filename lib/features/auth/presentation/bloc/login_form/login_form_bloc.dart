@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/core.dart';
 import '../../../domain/domain.dart';
@@ -74,10 +75,15 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
 
     result.fold(
       ifLeft: (error) {
-        emit(state.copyWith(isPosting: false));
+        emit(state.copyWith(isPosting: false, errorMessage: error.message));
       },
       ifRight: (user) {
-        emit(state.copyWith(isPosting: false));
+        emit(state.copyWith(isPosting: false, errorMessage: ''));
+
+        final context = rootNavigatorKey.currentContext;
+        if (context != null) {
+          GoRouter.of(context).go(RoutePaths.home);
+        }
       },
     );
   }

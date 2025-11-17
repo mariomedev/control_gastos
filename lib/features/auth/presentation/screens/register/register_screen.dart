@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/core.dart';
 import '../../bloc/bloc.dart';
@@ -16,7 +17,18 @@ class RegisterScreen extends StatelessWidget {
         if (!state.isPosting && state.isPosted) {
           // Aquí puedes mostrar snackbars o navegar si el registro fue exitoso
           if (state.isValid) {
-            // Registro exitoso - navegar o mostrar mensaje
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Registro exitoso'),
+              ),
+            );
+            context.pushNamed(RoutePaths.login);
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.errorMessage),
+              ),
+            );
           }
         }
       },

@@ -125,7 +125,7 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
 
     result.fold(
       ifLeft: (error) {
-        emit(state.copyWith(isPosting: false));
+        emit(state.copyWith(isPosting: false, errorMessage: error.message));
       },
       ifRight: (user) {
         emit(state.copyWith(isPosting: false));
