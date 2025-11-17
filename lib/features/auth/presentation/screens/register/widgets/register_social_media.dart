@@ -23,7 +23,7 @@ class RegisterSocialMedia extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            const Text(
               AppStrings.registerFooterText1,
             ),
             SizedBox(
@@ -59,7 +59,7 @@ class RegisterSocialMedia extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               spacing: 5,
               children: [
-                Text(AppStrings.registerFooterText2),
+                const Text(AppStrings.registerFooterText2),
                 TextButton(
                   onPressed: () {
                     context.go('/login');

@@ -11,18 +11,17 @@ class OnboardingScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          OnboardingPageView(),
+          const OnboardingPageView(),
           Positioned(
             bottom: ScreenHelper.responsiveHeight(context, 0.05),
-            child: OnboardingButton(),
+            child: const OnboardingButton(),
           ),
           Positioned(
             bottom: ScreenHelper.responsiveHeight(context, 0.20),
-            child: Dots(),
+            child: const Dots(),
           ),
         ],
       ),
     );
   }
 }
-

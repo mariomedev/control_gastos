@@ -1,7 +1,6 @@
 import 'package:control_gastos/core/core.dart';
 import 'package:flutter/material.dart';
 
-
 class OnboardingPageItem extends StatelessWidget {
   final String image;
   final String title;
@@ -27,7 +26,7 @@ class OnboardingPageItem extends StatelessWidget {
           Image.asset(image),
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 30,
             ),
@@ -35,7 +34,7 @@ class OnboardingPageItem extends StatelessWidget {
           ),
           Text(
             description,
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
             textAlign: TextAlign.center,
           ),
         ],

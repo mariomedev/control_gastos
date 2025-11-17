@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../core/core.dart';
 import '../../../../../shared/shared.dart';
-import '../../../provider/providers.dart';
+import '../../../bloc/bloc.dart';
 
-class RegisterBotton extends ConsumerWidget {
+class RegisterBotton extends StatelessWidget {
   const RegisterBotton({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final authFormController = ref.watch(registerFormProvider.notifier);
-    return CustomButtonShare(
-      title: 'Registrarse',
-      onPressed: () {
-        authFormController.onFormSumit(context);
+  Widget build(BuildContext context) {
+    return BlocBuilder<RegisterFormBloc, RegisterFormState>(
+      bloc: getIt<RegisterFormBloc>(),
+      builder: (context, state) {
+        return CustomButtonShare(
+          title: 'Registrarse',
+          onPressed: state.isValid && !state.isPosting
+              ? () {
+                  getIt<RegisterFormBloc>().add(RegisterFormSubmitted());
+                }
+              : null,
+        );
       },
     );
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/core.dart';
+import '../../bloc/bloc.dart';
 import 'widgets/widgets.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -8,22 +10,33 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Register'),
-        centerTitle: true,
-        elevation: 1,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _SpacerForm(0.07),
-            FormRegister(),
-            _SpacerForm(0.1),
-            RegisterBotton(),
-            _SpacerForm(0.1),
-            RegisterSocialMedia()
-          ],
+    return BlocListener<RegisterFormBloc, RegisterFormState>(
+      bloc: getIt<RegisterFormBloc>(),
+      listener: (context, state) {
+        if (!state.isPosting && state.isPosted) {
+          // Aquí puedes mostrar snackbars o navegar si el registro fue exitoso
+          if (state.isValid) {
+            // Registro exitoso - navegar o mostrar mensaje
+          }
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Register'),
+          centerTitle: true,
+          elevation: 1,
+        ),
+        body: const SingleChildScrollView(
+          child: Column(
+            children: [
+              _SpacerForm(0.07),
+              FormRegister(),
+              _SpacerForm(0.1),
+              RegisterBotton(),
+              _SpacerForm(0.1),
+              RegisterSocialMedia()
+            ],
+          ),
         ),
       ),
     );

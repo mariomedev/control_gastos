@@ -1,19 +1,19 @@
-import 'package:control_gastos/features/auth/presentation/provider/providers.dart';
 import 'package:flutter/material.dart';
-
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/core.dart';
+import '../../bloc/bloc.dart';
 
-class SplashScreen extends ConsumerStatefulWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  ConsumerState<SplashScreen> createState() => _SplashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends ConsumerState<SplashScreen>
+class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animationScale;
@@ -21,7 +21,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   @override
   void initState() {
     _animationController = AnimationController(
-      duration: Duration(milliseconds: 2500),
+      duration: const Duration(milliseconds: 2500),
       vsync: this,
     );
     _animationScale = Tween<double>(begin: 0.1, end: 1).animate(CurvedAnimation(
@@ -29,12 +29,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
       curve: Curves.decelerate,
     ));
 
-    _animationController.forward().whenComplete(() async {
-      final onboardingCompleted = await ref
-          .read(onboardingCompletedProvider.notifier)
-          .checkOnboardingStatus();
+    _animationController.forward().whenComplete(() {
       if (!mounted) return;
-      context.go(onboardingCompleted ? '/register' : '/onboarding');
+      GetIt.instance<OnboardingBloc>().add(const CheckOnboardingStatus());
     });
 
     super.initState();
@@ -49,16 +46,24 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    return Scaffold(
-      backgroundColor: colors.primary,
-      body: Center(
-        child: ScaleTransition(
-          scale: _animationScale,
-          child: Image.asset(
-            AppAssets.splashImage,
-            width: 200,
-            height: 200,
-            fit: BoxFit.cover,
+    return BlocListener<OnboardingBloc, OnboardingState>(
+      bloc: GetIt.instance<OnboardingBloc>(),
+      listener: (context, state) {
+        if (!state.isLoading) {
+          context.go(state.isCompleted ? '/login' : '/onboarding');
+        }
+      },
+      child: Scaffold(
+        backgroundColor: colors.primary,
+        body: Center(
+          child: ScaleTransition(
+            scale: _animationScale,
+            child: Image.asset(
+              AppAssets.splashImage,
+              width: 200,
+              height: 200,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       ),

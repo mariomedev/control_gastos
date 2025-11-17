@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../../../../core/core.dart';
-import '../../../provider/providers.dart';
+import '../../../bloc/bloc.dart';
 
 class Dots extends StatelessWidget {
   const Dots({
@@ -15,7 +16,7 @@ class Dots extends StatelessWidget {
     return SizedBox(
       height: 50,
       width: ScreenHelper.responsiveWidth(context, 1),
-      child: Row(
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _Dot(index: 0),
@@ -27,25 +28,29 @@ class Dots extends StatelessWidget {
   }
 }
 
-class _Dot extends ConsumerWidget {
+class _Dot extends StatelessWidget {
   final int index;
   const _Dot({
     required this.index,
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final colors = Theme.of(context).colorScheme;
-    final indexProvider = ref.watch(onboardingIndexProvider);
+  Widget build(BuildContext context) {
+    return BlocBuilder<OnboardingBloc, OnboardingState>(
+      bloc: GetIt.instance<OnboardingBloc>(),
+      builder: (context, state) {
+        final colors = Theme.of(context).colorScheme;
 
-    return Container(
-      margin: ScreenHelper.paddingSymmetric(horizontal: 5),
-      height: 12,
-      width: 12,
-      decoration: BoxDecoration(
-        color: (indexProvider == index) ? colors.primary : Colors.grey,
-        shape: BoxShape.circle,
-      ),
+        return Container(
+          margin: ScreenHelper.paddingSymmetric(horizontal: 5),
+          height: 12,
+          width: 12,
+          decoration: BoxDecoration(
+            color: (state.currentIndex == index) ? colors.primary : Colors.grey,
+            shape: BoxShape.circle,
+          ),
+        );
+      },
     );
   }
 }

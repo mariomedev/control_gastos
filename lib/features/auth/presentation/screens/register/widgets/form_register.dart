@@ -1,70 +1,73 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/core.dart';
 import '../../../../../shared/shared.dart';
-import '../../../provider/providers.dart';
+import '../../../bloc/bloc.dart';
 
-class FormRegister extends ConsumerWidget {
+class FormRegister extends StatelessWidget {
   const FormRegister({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final authFormController = ref.read(registerFormProvider.notifier);
-    final authFormState = ref.watch(registerFormProvider);
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 5,
-        children: [
-          _TitleForm(
-            title: AppStrings.registerFormTitle1,
+  Widget build(BuildContext context) {
+    return BlocBuilder<RegisterFormBloc, RegisterFormState>(
+      bloc: getIt<RegisterFormBloc>(),
+      builder: (context, state) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 5,
+            children: [
+              const _TitleForm(
+                title: AppStrings.registerFormTitle1,
+              ),
+              CustomForm(
+                hintText: AppStrings.registerHintText1,
+                onChanged: (value) =>
+                    getIt<RegisterFormBloc>().add(RegisterNameChanged(value)),
+                errorText:
+                    state.isPosted ? state.userNameInput.errorMessage : null,
+              ),
+              const _TitleForm(
+                title: AppStrings.registerFormTitle2,
+              ),
+              CustomForm(
+                hintText: AppStrings.registerHintText2,
+                onChanged: (value) =>
+                    getIt<RegisterFormBloc>().add(RegisterEmailChanged(value)),
+                errorText:
+                    state.isPosted ? state.emailInput.errorMessage : null,
+              ),
+              const _TitleForm(
+                title: AppStrings.registerFormTitle3,
+              ),
+              CustomForm(
+                hintText: AppStrings.registerHintText3,
+                passwordIsActive: true,
+                onChanged: (value) => getIt<RegisterFormBloc>()
+                    .add(RegisterPasswordChanged(value)),
+                errorText:
+                    state.isPosted ? state.passwordInput.errorMessage : null,
+              ),
+              const _TitleForm(
+                title: AppStrings.registerFormTitle4,
+              ),
+              CustomForm(
+                hintText: AppStrings.registerHintText4,
+                passwordIsActive: true,
+                onChanged: (value) => getIt<RegisterFormBloc>()
+                    .add(RegisterConfirmPasswordChanged(value)),
+                errorText: state.isPosted
+                    ? state.confirmPasswordInput.errorMessage
+                    : null,
+              ),
+            ],
           ),
-          CustomForm(
-            hintText: AppStrings.registerHintText1,
-            onChanged: (value) => authFormController.onNameChanged(value),
-            errorText: authFormState.isPosted
-                ? authFormState.userNameInput.errorMessage
-                : null,
-          ),
-          _TitleForm(
-            title: AppStrings.registerFormTitle2,
-          ),
-          CustomForm(
-            hintText: AppStrings.registerHintText2,
-            onChanged: (value) => authFormController.onEmailChanged(value),
-            errorText: authFormState.isPosted
-                ? authFormState.emailInput.errorMessage
-                : null,
-          ),
-          _TitleForm(
-            title: AppStrings.registerFormTitle3,
-          ),
-          CustomForm(
-            hintText: AppStrings.registerHintText3,
-            passwordIsActive: true,
-            onChanged: (value) => authFormController.onPasswordChanged(value),
-            errorText: authFormState.isPosted
-                ? authFormState.passwordInput.errorMessage
-                : null,
-          ),
-          _TitleForm(
-            title: AppStrings.registerFormTitle4,
-          ),
-          CustomForm(
-            hintText: AppStrings.registerHintText4,
-            passwordIsActive: true,
-            onChanged: (value) =>
-                authFormController.onConfirmPasswordChanged(value),
-            errorText: authFormState.isPosted
-                ? authFormState.confirmPasswordInput.errorMessage
-                : null,
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

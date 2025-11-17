@@ -1,33 +1,42 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../shared/shared.dart';
-import '../../../provider/providers.dart';
+import '../../../bloc/bloc.dart';
 
-class OnboardingButton extends ConsumerWidget {
+class OnboardingButton extends StatelessWidget {
+  static PageController? _pageController;
+
+  static void setPageController(PageController controller) {
+    _pageController = controller;
+  }
+
   const OnboardingButton({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final onboardingIndex = ref.watch(onboardingIndexProvider);
-    final onboardingController = ref.watch(onboardingControllerProvider);
-    final onboardingCompleted = ref.watch(onboardingCompletedProvider.notifier);
+  Widget build(BuildContext context) {
+    return BlocBuilder<OnboardingBloc, OnboardingState>(
+      bloc: GetIt.instance<OnboardingBloc>(),
+      builder: (context, state) {
+        final isLastPage = state.currentIndex == 2;
 
-    return CustomButtonShare(
-      title: (onboardingIndex == 2) ? 'Siguiente' : 'Empezar',
-      onPressed: () {
-        if (onboardingIndex != 2) {
-          onboardingController!.nextPage(
-            duration: Duration(seconds: 1),
-            curve: Curves.easeOutCubic,
-          );
-        }
-        if (onboardingIndex == 2) {
-          onboardingCompleted.completeOnboarding();
-          context.go('/login');
-        }
+        return CustomButtonShare(
+          title: isLastPage ? 'Empezar' : 'Siguiente',
+          onPressed: () {
+            if (!isLastPage && _pageController != null) {
+              _pageController!.nextPage(
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              );
+            } else if (isLastPage) {
+              GetIt.instance<OnboardingBloc>().add(const CompleteOnboarding());
+              context.go('/login');
+            }
+          },
+        );
       },
     );
   }
