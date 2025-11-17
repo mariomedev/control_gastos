@@ -1,5 +1,6 @@
-import 'package:control_gastos/core/constants/constants.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../core/core.dart';
 
 class ProfileInfoUser extends StatelessWidget {
   const ProfileInfoUser({super.key});
@@ -16,7 +17,7 @@ class ProfileInfoUser extends StatelessWidget {
           backgroundImage: NetworkImage(img),
           maxRadius: size.width * 0.1,
         ),
-        Text(
+        const Text(
           'Mario Steven Melo Mendoza',
           style: TextStyle(fontSize: 25),
         ),

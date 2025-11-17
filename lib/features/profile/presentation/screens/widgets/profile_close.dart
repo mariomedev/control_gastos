@@ -7,7 +7,7 @@ class ProfileClose extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       spacing: AppDimensions.kSpacing10,
       children: [
         Row(

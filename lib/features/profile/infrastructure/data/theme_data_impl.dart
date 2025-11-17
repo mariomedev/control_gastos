@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/core.dart';
-import '../../domain/domain.dart';
+import '../../profile_feature.dart';
 
 class DataThemeImpl implements ThemeDataDomain {
   final SharedPreferencesService service;

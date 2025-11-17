@@ -12,10 +12,10 @@ class ProfileCardGoal extends StatelessWidget {
     return Column(
       spacing: AppDimensions.kSpacing10,
       children: [
-        Align(
+        const Align(
           alignment: Alignment.centerLeft,
           child: Padding(
-            padding: const EdgeInsets.symmetric(
+            padding: EdgeInsets.symmetric(
               horizontal: AppDimensions.kPadding20,
             ),
             child: Text(
@@ -25,10 +25,10 @@ class ProfileCardGoal extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
             horizontal: AppDimensions.kMargin20,
           ),
-          padding: EdgeInsets.all(
+          padding: const EdgeInsets.all(
             AppDimensions.kPadding10,
           ),
           decoration: BoxDecoration(
@@ -43,21 +43,21 @@ class ProfileCardGoal extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.directions_run,
                   ),
                   SizedBox(
                     width: size.width * 0.7,
-                    child: LinearProgressIndicator(
+                    child: const LinearProgressIndicator(
                       value: 0.3,
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.star,
                   ),
                 ],
               ),
-              Text(
+              const Text(
                 'Eres Un Campeón Todo lo puedes',
                 style: TextStyle(
                   fontSize: 20,
