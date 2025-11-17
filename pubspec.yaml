@@ -8,21 +8,25 @@ environment:
 
 dependencies:
   dart_either: ^2.0.0
-  fl_chart: ^0.71.0
+  equatable: ^2.0.5
+  fl_chart: ^1.1.1
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.0.0
   flutter_colorpicker: ^1.1.0
+  flutter_dotenv: ^5.1.0
   flutter_localization: ^0.3.1
-  flutter_riverpod: ^2.6.1
+  flutter_riverpod: ^3.0.3
   flutter_svg: ^2.0.17
   formz: ^0.8.0
-  go_router: ^14.7.1
+  get_it: ^7.6.0
+  go_router: ^17.0.0
   shared_preferences: ^2.5.3
   sqflite: ^2.4.1
   supabase_flutter: ^2.9.1
 
 dev_dependencies:
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
 
@@ -30,6 +34,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - .env
     - assets/img/onboarding/
     - assets/img/splash/
     - assets/svg/icons/
