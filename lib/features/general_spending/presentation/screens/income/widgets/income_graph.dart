@@ -13,11 +13,11 @@ class IncomeGraph extends StatelessWidget {
     return SizedBox(
       height: ScreenHelper.responsiveHeight(context, 0.35),
       width: double.infinity,
-      child: Column(
+      child: const Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
           Text(
             'Esta semana',
             style: TextStyle(
@@ -26,7 +26,7 @@ class IncomeGraph extends StatelessWidget {
             ),
           ),
           CustomButtonFilter(),
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
         ],
       ),
     );

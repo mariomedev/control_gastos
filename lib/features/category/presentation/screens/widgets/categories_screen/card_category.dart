@@ -12,17 +12,17 @@ class CardCategory extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
     final isDark = colors.brightness == Brightness.dark ? true : false;
     return Padding(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: AppDimensions.kPadding20,
       ),
       child: Card(
-        margin: EdgeInsets.symmetric(vertical: AppDimensions.kMargin10),
+        margin: const EdgeInsets.symmetric(vertical: AppDimensions.kMargin10),
         color: isDark ? colors.onPrimaryContainer : null,
         child: ListTile(
           title: Text(category.title),
-          leading: Icon(Icons.price_change),
+          leading: const Icon(Icons.price_change),
           trailing: IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.delete_forever_outlined,
             ),
             onPressed: () {},

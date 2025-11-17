@@ -11,10 +11,10 @@ class SpentList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: 10,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemBuilder: (context, index) {
-        return TransactionCategoryCardShared();
+        return const TransactionCategoryCardShared();
       },
     );
   }

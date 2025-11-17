@@ -13,10 +13,7 @@ class LoginBottonBloc extends StatelessWidget {
     return BlocListener<LoginFormBloc, LoginFormState>(
       bloc: getIt<LoginFormBloc>(),
       listener: (context, state) {
-        if (state.isPosting) {
-          // Mostrar loading
-        }
-        // Aquí puedes escuchar cambios de estado y navegar o mostrar errores
+        if (state.isPosting) {}
       },
       child: BlocBuilder<LoginFormBloc, LoginFormState>(
         bloc: getIt<LoginFormBloc>(),

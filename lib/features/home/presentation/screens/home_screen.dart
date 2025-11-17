@@ -6,10 +6,10 @@ import '../../../general_spending/presentation/screens/screens.dart';
 import 'widgets/home_navigator_item.dart';
 
 List<Widget> pages = [
-  GeneralScreen(),
-  Icon(Icons.aspect_ratio),
-  Icon(Icons.wallet),
-  ProfileScreen(),
+  const GeneralScreen(),
+  const Icon(Icons.aspect_ratio),
+  const Icon(Icons.wallet),
+  const ProfileScreen(),
 ];
 
 class HomeScreen extends StatefulWidget {
@@ -23,11 +23,11 @@ class _HomeScreenState extends State<HomeScreen> {
   PageController pageViewController = PageController();
   int currentPage = 0;
 
-  _changePage(int page) {
+  void _changePage(int page) {
     //pageViewController.jumpToPage(page);
     pageViewController.animateToPage(
       page,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );
     setState(() {});

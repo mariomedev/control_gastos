@@ -14,8 +14,9 @@ class FormLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authFormBloc = GetIt.instance<LoginFormBloc>();
     return BlocBuilder<LoginFormBloc, LoginFormState>(
-      bloc: GetIt.instance<LoginFormBloc>(),
+      bloc: authFormBloc,
       builder: (context, authFormState) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),

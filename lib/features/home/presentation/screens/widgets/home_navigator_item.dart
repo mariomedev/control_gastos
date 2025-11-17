@@ -27,14 +27,14 @@ class HomeNavigatorItem extends StatelessWidget {
             height: 26,
             width: 26,
             colorFilter: ColorFilter.mode(
-              isSeleted ? colors.primary : Color(0xff92929D),
+              isSeleted ? colors.primary : const Color(0xff92929D),
               BlendMode.srcIn,
             ),
           ),
           Text(
             title,
             style: TextStyle(
-              color: isSeleted ? colors.primary : Color(0xff92929D),
+              color: isSeleted ? colors.primary : const Color(0xff92929D),
             ),
           ),
         ],

@@ -7,17 +7,17 @@ class SpentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             children: [
               SpentGraph(),
               SpentButtonAdd(),
               SpentList(),
             ],
-          ),            
+          ),
         ),
       ),
     );

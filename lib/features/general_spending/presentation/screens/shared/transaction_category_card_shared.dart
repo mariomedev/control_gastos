@@ -9,7 +9,7 @@ class TransactionCategoryCardShared extends StatelessWidget {
     return Card(
       elevation: 5,
       color: colors.onPrimaryContainer,
-      child: ListTile(
+      child: const ListTile(
         title: Text(
           'Gasto',
           style: TextStyle(
