@@ -17,19 +17,24 @@ class ConfirmPasswordInput
   String? get errorMessage {
     if (isValid || isPure) return null;
 
-    if (displayError == ConfirmPasswordInputError.empty)
+    if (displayError == ConfirmPasswordInputError.empty) {
       return 'La contraseña es requerida';
-    if (displayError == ConfirmPasswordInputError.mismatch)
+    }
+    if (displayError == ConfirmPasswordInputError.mismatch) {
       return 'Las contraseñas no coinciden';
+    }
 
     return null;
   }
 
   @override
   ConfirmPasswordInputError? validator(String value) {
-    if (value.isEmpty || value.trim().isEmpty)
+    if (value.isEmpty || value.trim().isEmpty) {
       return ConfirmPasswordInputError.empty;
-    if (value != password.value) return ConfirmPasswordInputError.mismatch;
+    }
+    if (value != password.value) {
+      return ConfirmPasswordInputError.mismatch;
+    }
 
     return null;
   }

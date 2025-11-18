@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 import 'route_paths.dart';
+import '../../features/accounts/presentation/presentation.dart';
 import '../../features/auth/presentation/screens/screens.dart';
 import '../../features/home/presentation/screens/screens.dart';
 import '../../features/shared/shared.dart';
@@ -23,6 +24,10 @@ final GoRouter routes = GoRouter(
     GoRoute(
       path: RoutePaths.home,
       builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: RoutePaths.accounts,
+      builder: (context, state) => const AccountsScreen(),
     ),
     GoRoute(
       path: RoutePaths.register,

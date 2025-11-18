@@ -7,6 +7,7 @@ class RoutePaths {
   static const String home = '/home';
   static const String register = '/register';
   static const String login = '/login';
+  static const String accounts = '/accounts';
   static const String categories = '/categories';
   static const String createCategory = '/create_category';
 }

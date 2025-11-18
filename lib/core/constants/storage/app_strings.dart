@@ -21,7 +21,7 @@ class AppStrings {
 
   static const String homeNavigatorTitle1 = 'General';
   static const String homeNavigatorTitle2 = 'Cuentas';
-  static const String homeNavigatorTitle3 = 'Fijos';
+  static const String homeNavigatorTitle3 = 'IA Financiera';
   static const String homeNavigatorTitle4 = 'Perfil';
 
   //Register Screen

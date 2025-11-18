@@ -14,18 +14,24 @@ class EmailInput extends FormzInput<String, EmailInputError> {
   String? get errorMessage {
     if (isValid || isPure) return null;
 
-    if (displayError == EmailInputError.empty)
+    if (displayError == EmailInputError.empty) {
       return 'El correo electrónico es requerido';
-    if (displayError == EmailInputError.format)
+    }
+    if (displayError == EmailInputError.format) {
       return 'Formato de correo inválido';
+    }
 
     return null;
   }
 
   @override
   EmailInputError? validator(String value) {
-    if (value.isEmpty || value.trim().isEmpty) return EmailInputError.empty;
-    if (!emailRegExp.hasMatch(value)) return EmailInputError.format;
+    if (value.isEmpty || value.trim().isEmpty) {
+      return EmailInputError.empty;
+    }
+    if (!emailRegExp.hasMatch(value)) {
+      return EmailInputError.format;
+    }
 
     return null;
   }
