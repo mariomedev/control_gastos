@@ -51,9 +51,10 @@ class _CustomFormState extends State<CustomForm> {
       onChanged: widget.onChanged,
       keyboardType: widget.keyboardType,
       decoration: InputDecoration(
-        focusedBorder: border.copyWith(borderSide: BorderSide(width: 2)),
+        focusedBorder: border.copyWith(borderSide: const BorderSide(width: 2)),
         enabledBorder: border,
-        errorBorder: errorBorder.copyWith(borderSide: BorderSide(width: 2)),
+        errorBorder:
+            errorBorder.copyWith(borderSide: const BorderSide(width: 2)),
         focusedErrorBorder: errorBorder,
         floatingLabelStyle: const TextStyle(
           color: Colors.black,
@@ -61,7 +62,7 @@ class _CustomFormState extends State<CustomForm> {
           fontSize: 18,
         ),
         hintText: widget.hintText,
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: 14,
         ),
@@ -96,19 +97,19 @@ class _AnimateEyeState extends State<_AnimateEye> {
   @override
   Widget build(BuildContext context) {
     return AnimatedSwitcher(
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
       child: widget.isVisible
           ? SizedBox(
               child: IconButton(
                 onPressed: () => widget.onChanged(!widget.isVisible),
-                icon: SizedBox(
+                icon: const SizedBox(
                   child: _IconSvg(iconPath: AppAssets.eyeShow),
                 ),
               ),
             )
           : IconButton(
               onPressed: () => widget.onChanged(!widget.isVisible),
-              icon: _IconSvg(iconPath: AppAssets.eyeHide),
+              icon: const _IconSvg(iconPath: AppAssets.eyeHide),
             ),
     );
   }

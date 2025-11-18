@@ -10,7 +10,7 @@ class CustomButtonFilter extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text('05/12/2022 - 09/12/2022'),
+        const Text('05/12/2022 - 09/12/2022'),
         IconButton(
           onPressed: () {
             showModalBottomSheet(
@@ -21,7 +21,7 @@ class CustomButtonFilter extends StatelessWidget {
                 child: Column(
                   spacing: 10,
                   children: [
-                    _FilterText(
+                    const _FilterText(
                       title: 'Filter',
                       fontWeight: FontWeight.bold,
                     ),
@@ -42,7 +42,7 @@ class CustomButtonFilter extends StatelessWidget {
               ),
             );
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.keyboard_arrow_down_rounded,
             size: 20.0,
           ),

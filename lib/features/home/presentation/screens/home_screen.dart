@@ -2,13 +2,14 @@ import 'package:control_gastos/features/profile/presentation/screens/profile_scr
 import 'package:flutter/material.dart';
 
 import '../../../../core/core.dart';
+import '../../../accounts/accounts_feature.dart';
 import '../../../general_spending/presentation/screens/screens.dart';
 import 'widgets/home_navigator_item.dart';
 
 List<Widget> pages = [
   const GeneralScreen(),
-  const Icon(Icons.aspect_ratio),
-  const Icon(Icons.wallet),
+  const AccountsScreen(),
+  const Icon(Icons.smart_toy, size: 100),
   const ProfileScreen(),
 ];
 

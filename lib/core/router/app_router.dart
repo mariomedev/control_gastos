@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'route_paths.dart';
 import '../../features/accounts/presentation/presentation.dart';
 import '../../features/auth/presentation/screens/screens.dart';
+import '../../features/category/domain/domain.dart';
 import '../../features/home/presentation/screens/screens.dart';
 import '../../features/shared/shared.dart';
 
@@ -43,7 +44,12 @@ final GoRouter routes = GoRouter(
       routes: [
         GoRoute(
           path: RoutePaths.createCategory,
-          builder: (context, state) => const CreateCategoryScreen(),
+          builder: (context, state) {
+            final category = state.extra is CategoryEntity
+                ? state.extra as CategoryEntity
+                : null;
+            return CreateCategoryScreen(initialCategory: category);
+          },
         )
       ],
     ),
