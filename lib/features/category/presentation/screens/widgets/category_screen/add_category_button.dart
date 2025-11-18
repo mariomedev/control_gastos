@@ -7,13 +7,19 @@ import '../../../../../shared/shared.dart';
 class AddCategoryButton extends StatelessWidget {
   const AddCategoryButton({
     super.key,
+    this.onPressed,
   });
+
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return CustomButtonShare(
       title: AppStrings.addButtonCategory,
-      onPressed: () => context.push('/categories/create_category'),
+      onPressed: onPressed ??
+          () => context.push(
+                '${RoutePaths.categories}/${RoutePaths.createCategory}',
+              ),
     );
   }
 }

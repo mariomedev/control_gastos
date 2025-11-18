@@ -1,1 +1,9 @@
+export 'datasource/categories_data_source.dart';
 export 'entities/category_entity.dart';
+export 'entities/create_category_input.dart';
+export 'entities/update_category_input.dart';
+export 'repositories/categories_repository.dart';
+export 'usecases/get_user_categories.dart';
+export 'usecases/create_category.dart';
+export 'usecases/update_category.dart';
+export 'usecases/delete_category.dart';
