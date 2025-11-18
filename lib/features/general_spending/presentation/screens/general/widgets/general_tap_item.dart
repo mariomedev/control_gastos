@@ -10,7 +10,7 @@ class GeneralTapItem extends StatelessWidget {
       child: Center(
         child: Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w400,
           ),

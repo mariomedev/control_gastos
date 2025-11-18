@@ -1,20 +1,32 @@
 import 'package:flutter/material.dart';
 
+import '../../../../domain/domain.dart';
 import '../../shared/shared.dart';
 
 class IncomeList extends StatelessWidget {
   const IncomeList({
     super.key,
+    required this.transactions,
+    this.onTransactionTap,
   });
+
+  final List<TransactionEntity> transactions;
+  final ValueChanged<TransactionEntity>? onTransactionTap;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 10,
-      physics: const NeverScrollableScrollPhysics(),
+      itemCount: transactions.length,
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
-        return const TransactionCategoryCardShared();
+        final transaction = transactions[index];
+        return TransactionCategoryCardShared(
+          transaction: transaction,
+          onTap: onTransactionTap == null
+              ? null
+              : () => onTransactionTap!(transaction),
+        );
       },
     );
   }

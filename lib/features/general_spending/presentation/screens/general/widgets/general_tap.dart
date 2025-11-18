@@ -13,20 +13,21 @@ class GeneralTapBar extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
     final isDark = colors.brightness == Brightness.dark;
     return ClipRRect(
-      borderRadius: BorderRadius.all(
+      borderRadius: const BorderRadius.all(
         Radius.circular(AppDimensions.kBorderRadius8),
       ),
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(horizontal: AppDimensions.kMargin30),
+            margin:
+                const EdgeInsets.symmetric(horizontal: AppDimensions.kMargin30),
             decoration: BoxDecoration(
                 color: colors.onPrimaryContainer,
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(AppDimensions.kBorderRadius8),
                 ),
                 boxShadow: [
-                  BoxShadow(
+                  const BoxShadow(
                     color: Colors.black38,
                     blurRadius: 5,
                     offset: Offset(3, 3),
@@ -48,13 +49,13 @@ class GeneralTapBar extends StatelessWidget {
                 color: isDark ? Colors.black : Colors.white,
               ),
               tabs: [
-                GeneralTapItem(title: 'Gastos'),
-                GeneralTapItem(title: 'Ingresos'),
-                GeneralTapItem(title: 'Historial'),
+                const GeneralTapItem(title: 'Gastos'),
+                const GeneralTapItem(title: 'Ingresos'),
+                // const GeneralTapItem(title: 'Historial'),
               ],
             ),
           ),
-          SizedBox(height: AppDimensions.kMargin10)
+          const SizedBox(height: AppDimensions.kMargin10)
         ],
       ),
     );
